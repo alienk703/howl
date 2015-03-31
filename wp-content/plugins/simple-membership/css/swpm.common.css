@@ -1,0 +1,60 @@
+/* General CSS */
+.swpm-margin-10{
+margin: 10px;
+}
+.swpm-margin-top-10{
+margin-top: 10px;
+}
+.swpm-margin-bottom-10{
+margin-bottom: 10px;
+}
+
+/* Login form CSS */
+.swpm-login-widget-form input,.swpm-login-widget-form checkbox{
+width: auto;
+}
+.swpm-username-input, .swpm-password-input{
+margin-bottom: 10px;
+}
+.swpm-login-submit{
+margin-bottom: 10px;    
+}
+.swpm-login-widget-action-msg{
+font-weight: bold;    
+}
+.swpm-logged-label{
+font-weight: bold;
+}
+
+/* Password reset form CSS */
+.swpm-password-reset-widget-form table{
+border: none;
+}
+swpm-password-reset-widget-form tr{
+border: none;
+}
+.swpm-password-reset-widget-form td{
+border: none;
+}
+
+/* Registration form CSS */
+.swpm-registration-widget-form td{
+min-width: 100px;
+}
+
+.swpm-restricted{
+    font-weight: bold;
+    color:red;
+}
+.swpm-select-box-left{
+    margin: 0;
+    padding-bottom: 5px;
+}
+
+/* Edit profile form CSS */
+.swpm-account-delete-button{
+    text-align: center;
+}
+.swpm-account-delete-button a{
+    color: red !important;
+}

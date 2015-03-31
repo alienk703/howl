@@ -1,0 +1,2126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Theme Documentation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+	<link rel="stylesheet" href="../style.css" type="text/css" media="screen, projection">
+	<link rel="stylesheet" href="documentation.css" type="text/css" media="screen, projection">	
+</head>
+
+<body data-spy="scroll" data-target=".nav-sidebar">
+
+    <div class="container-fluid">    
+    
+        <div class="row">
+        
+            <div class="col-sm-3 nav-sidebar">
+            
+                <ul class="nav nav-stacked fixed" id="sidebar" data-spy="affix" data-offset-top="0">
+                    <li class="active"><a href="#overview">Overview</a></li>
+                    <li><a href="#gettingstarted">Getting Started</a>
+                    	<ul class="nav nav-stacked">
+                    		<li><a href="#requirements">Requirements</a></li>
+                            <li><a href="#installing">Installation</a></li>
+                            <li><a href="#demo">Importing The Demo Content</a></li>
+                            <li><a href="#ajax">AJAX Thumbnail Rebuild</a></li>
+                    	</ul>
+                    </li>
+                    <li><a href="#code">Code Structure</a>
+                    	<ul class="nav nav-stacked">
+                    		<li><a href="#html">HTML</a></li>
+                            <li><a href="#css">CSS</a></li>
+                            <li><a href="#jquery">jQuery</a></li>
+                            <li><a href="#php">PHP</a></li>
+                    	</ul>                    
+                    </li>
+                    <li><a href="#design">Design Assets</a></li>
+                    <li><a href="#using">Using The Theme</a>
+                    	<ul class="nav nav-stacked">
+                        	<li><a href="#frontpage">Your Front Page</a></li>
+                            <li><a href="#pagebuilders">Page Builders</a></li>
+                            <li><a href="#shortcodes">Shortcode Generators</a></li>
+                            <li><a href="#sections">Category Sections</a></li>
+                            <li><a href="#menus">Custom Menus</a></li>
+                            <li><a href="#awards">Awards and Badges</a></li>
+                            <li><a href="#reactions">Reactions</a></li>
+                            <li><a href="#sidebars">Custom Sidebars</a></li>
+                            <li><a href="#signoffs">Custom "Signoffs"</a></li>
+                            <li><a href="#reviews">Reviews System</a></li>
+                            <li><a href="#contents">In-Post "Contents" Menus</a></li>
+                            <li><a href="#directory">Directory Builder</a></li>
+                            <li><a href="#ads">Ad Management</a></li>
+                            <li><a href="#layouts">Post Layouts</a></li>
+                            <li><a href="#woo">WooCommerce, BuddyPress, and bbPress</a></li>
+                        </ul>                        
+                    </li>
+                    <li><a href="#troubleshooting">Troubleshooting</a></li>
+                    <li><a href="#themecheck">Theme Check</a></li>
+                    <li><a href="#performance">Performance</a></li>
+                    <li><a href="#migrating">Migrating</a></li>
+                    <li><a href="#credits">Credits</a></li>
+                    
+                </ul>
+            
+            </div>
+            
+            <div class="col-sm-9">    
+            
+<section id="overview">                
+    
+    <h1>Overview</h1>
+    
+    <p>&nbsp;</p>
+    
+    <div class="jumbotron">
+      <h2>Thanks for choosing Industrial Themes!</h2>
+      <p class="tagline">We want you to be completely satisfied with this theme. If you have any questions that go beyond the scope of this documentation, please refer to our support portal for the most up-to-date resources.</p>
+      <p>
+        <a class="btn btn-primary btn-lg" href="http://www.industrialthemes.com/implicit/support/" target="_blank">Support Portal</a>
+      </p>
+    </div>
+    
+    <div class="well">
+        <b>Implicit documentation by Industrial Themes, LLC v1.0</b><br />
+        Created 7/15/2014<br />
+        <a href="mailto:support@industrialthemes.com">support@industrialthemes.com</a>                    
+    </div>
+    
+    <p>
+    We've taken careful measures and a lot of time to document this theme fully. Please refer to the <a href="http://www.industrialthemes.com/implicit/support/" target="_blank">support portal</a> above for very helpful resources that expand upon the helpful information in this documentation, including:
+    </p>
+    
+    <p>&nbsp;</p>
+    
+    <dl class="dl-horizontal">
+        <dt>Screencasts</dt>
+        <dd>Helpful visual video guides addressing common questions such as how to create minisites</dd>
+        <dt>FAQs</dt>
+        <dd>Answers to frequently asked questions including question that surfaced after the writing of this document</dd>
+        <dt>Credits</dt>
+        <dd>Licensing information about theme assets like images and fonts</dd>
+        <dt>Support Center</dt>
+        <dd>Where to get help if your issue is not addressed in any of the above resources</dd>
+        <dt>Contact Info</dt>
+        <dd>How to get in touch with us</dd>
+    </dl>
+    
+    <p>&nbsp;</p>
+    
+    <p>
+    The following sections explain everything there is to know about this theme, from installing it, to importing demo content, to modifying theme files, to setting up content carousels, to troubleshooting, to helpful tips and beyond! Please let us know if we missed anything or anything is inaccurate in this documentation - we would greatly appreciate it.
+    </p>       
+    
+    <p>&nbsp;</p>
+
+</section>
+
+<section id="gettingstarted">                
+    
+    <h1>Getting Started</h1>
+    
+    <h3 id="requirements">Requirements</h3>
+    
+    <ul>
+    	<li>PHP 5.0+</li>
+        <li>WordPress 3.8+</li>
+        <li>cURL must be enabled on your web server (http://stackoverflow.com/questions/1347146/how-to-enable-curl-in-php-xampp)</li>
+        <li>If you are using the social counts widget, file_get_contents() requires that you have allow_url_fopen turned on (http://www.php.net/manual/en/filesystem.configuration.php#ini.allow-url-fopen)</li>
+        <li>If you have PHP version 5.3.9+ and you have more than 1,000 options posted in your theme options (this will rarely ever happen) you need to increase your max_input_vars setting on your web server (http://stackoverflow.com/questions/10303714/php-max-input-vars)
+    </ul>
+    
+    <h3 id="installing">Installation</h3>
+    
+    <p>
+    ThemeForest provides two different theme files to download. You need only download the installable theme file unless you want additional reference material such as layered PSD designs or PNG components. Once you've downloaded the installable theme zip file, there are two ways to install it in your WordPress install:
+    </p>
+    
+    <ol>
+        <li>WordPress Theme Installer</li>
+        <li>Manual FTP Upload</li>
+    </ol>    
+    
+    <p>
+    We usually recommend the FTP method since it cuts out the middleman (WordPress uploader code) and is the most straightforward way to do it. However some prefer directly installing in WordPress for convenience. To use the WordPress installer:
+    </p>
+    
+    <ol>
+        <li>Login to WordPress and go to Appearance >> Themes</li>
+        <li>Click the Install Themes tab at the top</li>
+        <li>Click the Upload link</li>
+        <li>Choose the theme .zip file on your computer that you downloaded from ThemeForest and click Install Now</li>
+        <li>The theme should now be available to activate in your list of themes</li>                    
+    </ol>   
+    
+    <p>
+    If you run into any issues it is possible that a plugin or internal component is causing issues, and sometimes max upload filesize limits imposed by web hosts can also wreak havoc on larger themes. Whatever the cause, if you want to manually upload the theme via FTP:
+    </p>
+    
+    <ol>
+        <li>Unzip the theme file that you downloaded from ThemeForest</li>
+        <li>Connect to your web server via FTP (contact your web host if you don't know how to do this)</li>
+        <li>Navigate to your WordPress install and find the wp-content/ folder, and then the themes/ folder inside of that</li>
+        <li>Upload the implicit folder directly inside of the themes/ folder so that it exists in this location: /wp-content/themes/implicit</li>
+        <li>Login to WordPress and go to Appearance >> Themes</li>
+        <li>The theme should now be available to activate in your list of themes</li>                          
+    </ol>  
+    
+    <p>
+    <span class="label label-danger">Important</span> The folder you install/upload should be called "implicit" and contain the <code>style.css</code> file directly inside of it (this is the file that tells WordPress the name of the theme). <strong><em>Do not install/upload any other folder, such as "Implicit-Theme" for instance</em></strong>. This could potentially cause problems or at the very least confusion later on.
+    </p>
+    
+    <h3 id="demo">Importing the Demo Content</h3>
+    
+    <p>
+    We have made recreating the demo site easy with a 3-step process. This process assumes you have a blank WordPress install with no content. 
+    </p>
+    
+    <h5>1. Import the content</h5>
+    
+    <ul>
+    	<li>Go to Tools >> Import >> WordPress >> Choose File and select the implicit.xml file that is provided with your ThemeForest download.</li>
+        <li>Click "Upload file and import"</li>
+        <li>Select "Download and import file attachments" and click Submit (don't make any author assignments, unless of course you want to reassign posts to existing authors).</li>
+    </ul>
+        
+    <h5>2. Activate the theme</h5>
+       
+    <h5>3. Install the settings (click the green button at the bottom of the Theme Options page)</h5>    
+    
+    <div class="well">
+
+        Notes:
+        
+        <ul>
+        	<li>It is recommended to delete the default "Sample Post" blog post that WordPress automatically creates for new installs (you can likewise delete the "Sample Page")</li>
+            <li>For your reference, the demo install has 5 posts per page in Settings >> Reading >> "Blog pages show at most" so feel free to set yours to the same number (optional)</li>
+            <li>Your sample users will not have bios or profile fields filled out because WordPress doesn't include that info when it imports the authors, so you'll have to add that data. You'll likely be deleting them and replacing them with your own users anyway (or assigning all posts to yourself as admin) so it doesn't matter much.</li>
+            <li>The images used in the live preview were purchased for demonstration purposes and are licensed correctly. The demo XML contains placeholder images that you can replace with your own images. Demo images licensing info is located <a href="http://www.industrialthemes.com/implicit/support/credits/">here</a> (click the images tab)</li>
+            <li>Because the WordPress category ID's might not match up correctly in some cases, you may need to go to Theme Options >> Categories and change the selections for the four existing categories there. Select them in this order: 1) Design, 2) Entertainment, 3) Fashion, 4) Travel.</li>
+        </ul>
+        
+    </div>
+    
+    <h5>4. Assign menus (only do this if you don't see the menu items in your menus)</h5>
+    
+    <ul>
+    	<li>Go to Appearance >> Menus >> Manage Locations</li>
+        <li>Select "Section Menu" for the section menu, and "Secondary Menu" for the secondary and utility menus</li>
+    </ul>
+    
+    <h3 id="ajax">AJAX Thumbnail Rebuild</h3>
+    
+    <p>If you are installing this theme on a brand new blank WordPress installation, you can skip this section. If you already have articles with featured images in your WordPress site before you install the theme, you will need to resize your featured images to fit the dimensions of all the thumbnail areas. To easily and quickly do this, install the AJAX Thumbnail Rebuild plugin, and then go to Tools >> Rebuild Thumbnails and run it once. After the first time you run it, you will not have to run it again since any images uploaded after you have installed the theme will automatically be sized correctly. It only applies to images uploaded to your media library before you install the theme.</p>
+    
+    <p><span class="label label-info">Tip</span> If you have a lot of images it might take a while to complete - just let it work its magic and if for some reason it doesn't finish the first time feel free to run it again as many times as you want - it won't hurt anything or create any duplicate images.</p>
+    
+</section>
+
+<section id="code">                
+    
+    <h1>Code Structure</h1>
+    
+    <h3 id="html">HTML</h3>
+    
+    <p>
+    This theme is built using <a href="http://twitter.github.io/bootstrap/index.html">Bootstrap</a> and is a fluid, full-width, responsive layout. All of the code is spaced, indented, commented in-line, and semantically written to make it as easy as possible to edit and customize to your particular needs. The theme is built with valid HTML5 code and has been tested to be compatible with Chrome, Firefox, Opera, Safari, IE9+, and was also tested on an iPad using Chrome and Safari as well as an iPhone. The theme is HiDPI/retina compatible. It was built and tested with WordPress version 3.9. The general layout of the HTML code is as follows:
+    </p>
+    
+    <button type="button" class="btn btn-default btn-lg" data-toggle="collapse" data-target="#htmlcode">View Code</button>
+    
+    <div id="htmlcode" class="collapse out">
+    
+    <pre>
+    
+&lt;div class="container-fluid no-padding"&gt;
+
+	&lt;div id="sticky-bar"&gt;
+
+        &lt;div class="row"&gt;
+        
+        	&lt;div class="col-md-12"&gt;
+    
+        		...top sticky bar...
+                
+            &lt;/div&gt;
+        
+        &lt;/div&gt;
+        
+    &lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;div class="after-header"&gt;
+
+	&lt;div class="container-fluid no-padding"&gt;
+    
+    	&lt;div class="row no-margin"&gt;
+        
+        	&lt;div class="col-md-12"&gt;
+            
+            	&lt;div id="sticky-nav"&gt;
+    
+                    ...left sticky nav menu...
+                    
+                    &lt;div class="after-nav"&gt;
+                    
+                    	&lt;div id="headliner"&gt;
+                        
+                        	...headliner page builder panel...
+                    
+                    	&lt;/div&gt;
+                        
+                        &lt;div id="infinite-grid"&gt;
+                        
+                        	...infinite grid page builder panel...
+                    
+                    	&lt;/div&gt;
+                        
+                        &lt;div id="trending"&gt;
+                        
+                        	...trending page builder panel...
+                    
+                    	&lt;/div&gt;
+                        
+                        [...additional user-specified builder panels...] 
+                        
+                        &lt;div id="footer" class="container-fluid"&gt;
+                        
+                            &lt;div class="row no-margin"&gt;
+            
+               					&lt;div class="col-sm-4"&gt;
+                                
+                                	...footer column 1...
+                                
+                                &lt;/div&gt;
+                                
+                                &lt;div class="col-sm-4"&gt;
+                                
+                                	...footer column 2...
+                                
+                                &lt;/div&gt;
+                                
+                                &lt;div class="col-sm-4"&gt;
+                                
+                                	...footer column 3...
+                                
+                                &lt;/div&gt;
+                                
+                            &lt;/div&gt;
+                        
+                        &lt;/div&gt;
+                        
+                         &lt;div id="subfooter" class="container-fluid"&gt;
+                        
+                            &lt;div class="row no-margin"&gt;
+            
+               					&lt;div class="col-sm-6"&gt;
+                                
+                                	...subfooter left...
+                                
+                                &lt;/div&gt;
+                                
+                                &lt;div class="col-sm-6"&gt;
+                                
+                                	...subfooter right...
+                                
+                                &lt;/div&gt;
+                                
+                            &lt;/div&gt;
+                        
+                        &lt;/div&gt;
+                    
+                    &lt;/div&gt;
+                    
+                &lt;/div&gt;
+            
+            &lt;/div&gt; 
+        
+        &lt;/div&gt;    
+    
+    &lt;/div&gt;
+
+&lt;/div&gt;
+   
+    </pre>
+    
+    </div> 
+    
+    <br />   
+    
+    <h3 id="css">CSS</h3>
+    
+    <p>
+    The style scaffolding for this theme is provided by <a href="http://twitter.github.io/bootstrap/index.html">Bootstrap</a> which enables all the responsive layouts and basic styling of most elements. The code for the bootstrap begins at the top of the <code>style.css</code> file, followed by the rest of the theme code. The responsive styles are at the end of the file, as well as the retina images.
+    </p>
+    
+    <p>Since this theme is both responsive and HiDPI/retina ready, it has a fairly complex stylesheet and makes use of media queries to serve specific styles for specific displays. Also, any Bootstrap style overrides that are necessary for the theme are also within the style.css file. We have provided a blueprint of the stylesheet so that you can more easily find what you're looking for:</p>
+    
+    <button type="button" class="btn btn-default btn-lg" data-toggle="collapse" data-target="#csscode">View Code</button>
+    
+    <div id="csscode" class="collapse out">
+    
+    <pre>
+    
+/*************************************************
+begin bootstrap framework
+*************************************************/
+   
+Bootstrap framework (minified)
+ 
+/*************************************************
+general fonts
+*************************************************/
+
+font declarations
+
+/*************************************************
+general utilities
+*************************************************/
+
+some css resets and utility classes
+
+/*************************************************
+ads
+*************************************************/	
+
+general ad styles
+
+/*************************************************
+sticky bar
+*************************************************/	
+
+the fixed sticky bar at the top of the page
+
+/*************************************************
+sticky nav
+*************************************************/
+
+the fixed sticky nav at the left of the page
+
+/*************************************************
+post sharing
+*************************************************/
+
+the addthis+ post sharing widgets
+
+/*************************************************
+bar headers
+*************************************************/
+
+the various page builder panel headers/labels
+
+/*************************************************
+sortbars
+*************************************************/
+
+styles for the various sort button control bars
+
+/*************************************************
+pagination
+*************************************************/
+
+the styles for the pagination
+
+/*************************************************
+icons and buttons
+*************************************************/
+
+common styles for all icons and buttons
+
+/*************************************************
+overlay panel formats
+*************************************************/
+
+styles that apply to all overlay post panels
+
+/*************************************************
+grid specific
+*************************************************/
+
+post loop grid formats
+
+/*************************************************
+blog specific
+*************************************************/
+
+post loop blog (longform) formats
+
+/*************************************************
+horizontal scroller
+*************************************************/	
+
+the horizontal scroller page builder panel
+
+/*************************************************
+trending slider
+*************************************************/	
+
+the trending slider page builder panel
+
+/*************************************************
+top ten builder panel
+*************************************************/	
+
+the top ten list page builder panel
+
+/*************************************************
+headliner
+*************************************************/
+
+the headliner builder panel
+
+/*************************************************
+connect bar
+*************************************************/
+
+the connect page builder panel
+
+/*************************************************
+utility menu bar
+*************************************************/
+
+the utility menu page builder panel
+
+/*************************************************
+widgets
+*************************************************/
+
+all sidebar widget panels
+
+/*************************************************
+footer
+*************************************************/
+
+all styles relating to both footer and subfooter
+
+/*************************************************
+single page content
+*************************************************/
+
+styles for any time a single page is being viewed
+
+/*************************************************
+author listing
+*************************************************/
+
+the author listing loop template page
+
+/*************************************************
+directory
+*************************************************/
+
+the directory template pages
+
+/*************************************************
+shortcodes and bootstrap overrides
+*************************************************/
+
+since this file is loaded after bootstrap, any specific overrides to the default bootstrap style is done here
+
+/*************************************************
+plugin compatibility
+*************************************************/
+
+some style tweaks are necessary to make BuddyPress and WooCommerce look good
+
+/*************************************************
+ratings
+*************************************************/
+
+general styles for whenever ratings appear anywhere in the theme
+
+/*************************************************
+rating meters
+*************************************************/
+
+the circular rating meters used throughout the theme
+
+/*************************************************
+jQuery rateit (stars)
+*************************************************/
+
+/*************************************************
+jQuery slider (form toggle slider)
+*************************************************/
+
+/*************************************************
+jQuery colorbox
+*************************************************/
+
+/*************************************************
+jQuery smooth div scroll
+*************************************************/
+
+this is used by the top ten and horizontal scrollers
+
+/*************************************************
+font icons
+*************************************************/	
+
+the icon font set declarations
+
+/*************************************************
+print style
+*************************************************/	
+
+/*************************************************
+browser specific compatibility
+*************************************************/	
+
+/*************************************************
+retina
+*************************************************/	
+
+swaps out template images with 2x size for HiDPI displays
+
+/*************************************************
+responsive
+*************************************************/	
+
+responsive layout media queries
+
+    
+    </pre>
+    
+    </div>
+    
+    <p>
+    <span class="label label-info">Tip</span> Whenever you want to change the style of any part of the theme, use Chrome or Firefox and right click on the area you want to change and choose Inspect Element. That will bring up a console that shows exactly which lines of CSS in exactly which files affect that element so that you can go in and change the style how you see fit.
+    </p>
+    
+    <h3 id="jquery">jQuery</h3>
+    
+    <p>This theme enqueues WordPress's built-in javascript libraries correctly using the <code>wp_enqueue_script</code> function and does not make any manual calls to jQuery or jQuery UI libraries. Here are the scripts that are enqueued:</p>
+    
+    <pre>
+    wp_register_script('it-plugins', THEME_JS_URI . '/plugins.min.js', false, false, true);	
+    wp_register_script('it-scripts', THEME_JS_URI . '/scripts.min.js', false, false, true);		
+    wp_register_script('it-addthis', 'http://s7.addthis.com/js/300/addthis_widget.js#async=1', false, false, true);		
+    
+    #jquery
+    wp_enqueue_script('jquery');
+    wp_enqueue_script('jquery-ui-core');
+    wp_enqueue_script('jquery-ui-tabs');
+    wp_enqueue_script('jquery-ui-widget');
+    wp_enqueue_script('jquery-ui-slider');
+    wp_enqueue_script('jquery-effects-core');
+    wp_enqueue_script('jquery-effects-slide');
+    wp_enqueue_script('jquery-touch-punch');
+    
+    #other scripts
+    wp_enqueue_script('it-plugins');
+    wp_enqueue_script('it-scripts');
+    wp_enqueue_script('it-addthis');			
+     
+    #wp ajax library
+    wp_enqueue_script('itajax-request', THEME_URI . '/js/ajax.min.js', array( 'jquery' ));
+    wp_localize_script('itajax-request', 'itAjax', array('ajaxurl' => admin_url( 'admin-ajax.php' )));	
+    
+    
+    wp_register_script('it-plugins', THEME_JS_URI . '/plugins.min.js', false, false, true);	   
+    </pre>
+    
+    <p>After jQuery and jQuery UI are loaded, the theme then loads the theme's plugin-specific javascript libraries (including Bootstrap) contained in the <code>js/plugins.min.js</code> file. There is an unminified human-readable version in the same folder called <code>plugins.js</code>. Then the custom javascript file used by the theme <code>js/scripts.min.js.js</code> is called, which contains all of the custom javascript used by the theme. There is also an unminified version of this file in the same folder called <code>scripts.js</code>. After that, the AddThis+ script is called. Lastly the theme's AJAX javascript is loaded which is contained in the <code>js/ajax.min.js</code> file. There is an unminified human-readable version in the same folder called <code>ajax.js</code>. Here's a list of all of the javascript plugins contained in the plugins file:</p>
+    
+    <dl class="dl-horizontal">
+    	<dt>Bootstrap</dt>
+        <dd>All Bootstrap related javascript</dd>
+        <dt>Superfish</dt>
+        <dd>Enables smooth menu drop down animations and provides some style helpers to menus</dd>
+        <dt>SmoothDivScroll</dt>
+        <dd>Powers the top ten and horizontal scroller sliders</dd>
+        <dt>Fitvids</dt>
+        <dd>Enables videos embedded within the post loop to be responsive</dd>
+        <dt>Flickr</dt>
+        <dd>Provides the functionality of the Flickr photos widget</dd>
+        <dt>RateIt</dt>
+        <dd>Provides the functionality of the star rating mouseover and rating click functions</dd>         
+        <dt>Resize</dt>
+        <dd>Detects when the browser is resized and used for equal height columns functions</dd>  
+        <dt>Colorbox</dt>
+        <dd>Fancy lightbox effect for featured images and inserted media/galleries</dd>        
+    </dl>
+        
+    <p>There are a few additional javascript functions contained in the <code>inc/scripts.php</code> file. The reason for this is because within a few of the javascript functions it is necessary to access a theme setting or other PHP variable, so the page is actually a PHP file that outputs javascript. This file is loaded in the footer so it does not have any negative performance impact, and it is kept as minimal as possible with most of the scripts kept in the js/scripts.min.js file. When you open the file to edit it you'll see normal javascript code with a few PHP variables dispersed throughout.</p>
+    
+    <h3 id="php">PHP</h3>
+    
+    <p>The <code>framework.php</code> file, which is called by the standard <code>functions.php</code> file, sets up all the theme functions and classes. Within this file is the main IndustrialThemes class that builds out theme constant variables, functions files (found inside the functions/ folder), theme actions/filters/supports methods, and localization.</p>
+    
+    <p>
+    There are two main folders containing all of the PHP files used by the theme, the inc/ folder and the functions/ folder. The inc/ folder contains all of the files that are called by the theme files using the <code>it_get_template_part()</code> function. The argument within the function matches the filename of the file to load within the inc/ folder. For instance, this <code>it_get_template_part('trending')</code> will load the <code>trending.php</code> file within the inc/ folder. A good example of this is the theme's various page builder templates where the code loops through the theme options and then loads the respective file. An example is in the index.php file:
+    </p>
+    
+    <pre>
+&lt;?php get_header(); // show header ?&gt;
+
+&lt;?php 
+#loop through content panels
+$builder = it_get_setting('builder');
+if(!empty($builder)) {
+	foreach($builder as $component) {
+		it_get_template_part($component);	
+	}
+} else {
+	it_get_template_part('portholes');
+} 
+?&gt;
+
+&lt;?php get_footer(); // show footer ?&gt;
+    </pre>
+    
+    <p>As you can see this allows a very clean set of standard WordPress theme framework files and keeps all the code organized into the various components. In fact, almost every PHP file you open follows suit and does not contain very much code but instead calls a file within the inc/ folder. This is done for the purposes of easily reusing large blocks of code, such as the grid style loop code found in the <code>grid-paged.php</code> file within the inc/ folder which is used in various places within the theme. Here is a list of all page builder-enabled template files:</p>
+    
+    <ul>
+    	<li>404.php</li>
+    	<li>archive.php</li>
+        <li>buddypress.php</li>
+        <li>index.php</li>
+        <li>page.php</li>
+        <li>search.php</li>
+        <li>single.php</li>
+        <li>template-authors.php</li>
+        <li>template-directory.php</li>
+    </ul>
+    
+    <p>The heart of the theme is within the functions/ folder and these files are called directly within the IndustrialThemes class from the <code>framework.php</code> file. This includes files that create the core functionality, review functionality, widgets and shortcodes, and admin functionality for the theme options page, page and post meta boxes, and general administrative and troubleshooting utilities. There are numerous files that make up the framework of the theme, so we have listed them all out below along with a brief description of what each one does:</p>
+    
+    <button type="button" class="btn btn-default btn-lg" data-toggle="collapse" data-target="#phpfiles">View File Structure</button>
+    
+    <div id="phpfiles" class="collapse out">
+    
+    <div class="well">
+    
+    <ul>
+    	<li><strong>ajax.php</strong> called by the js/ajax.js file, contains query setup for the various post loops that are AJAX-enabled</li>
+        <li><strong>core.php</strong> all core functions used throughout the theme, such as enqueueing scripts, utility functions like getting a page ID from a page slug, and encoding/decoding functions for the theme settings import/export feature in the advanced theme options panel</li>
+        <li><strong>loop.php</strong> takes a location variable and returns markup for post display within any loop in the theme, including widgets</li>
+        <li><strong>options.php</strong> utility functions not used by default, only included for debugging/setup/troubleshooting</li>
+        <li><strong>reviews.php</strong> all functions that present markup for use in review functionality</li>
+        <li><strong>theme.php</strong> all functions the present markup for use in general theme layouts</li>
+        <li><strong>shortcodes</strong> the folder containing all of the shortcode classes
+        	<ul>
+            	<li><strong>_hidden.php</strong> contains helper functions for the column shortcodes</li>
+                <li><strong>alerts.php</strong> Bootstrap alert boxes</li>
+                <li><strong>buttons.php</strong> Bootstrap buttons</li>
+                <li><strong>carousel.php</strong> Bootstrap carousel</li>
+                <li><strong>icons.php</strong> shortcode to display the various font icons</li>                
+                <li><strong>jumbotron.php</strong> Bootstrap jumbotron</li>
+                <li><strong>labels.php</strong> Bootstrap labels</li>
+                <li><strong>layouts.php</strong> shortcode to display the various column layouts</li>
+                <li><strong>lists.php</strong> shortcode to display the fancy image lists</li>
+                <li><strong>miscellaneous.php</strong> various minor utility shortcodes such as dividers and spans</li>
+                <li><strong>modal.php</strong> Bootstrap modal dialog box</li>
+                <li><strong>popovers.php</strong> Bootstrap popovers</li>
+                <li><strong>progress.php</strong> Bootstrap progress bars</li>
+                <li><strong>quotes.php</strong> Bootstrap blockquotes</li>
+                <li><strong>section.php</strong> Creates contents menu break points</li>
+                <li><strong>signoffs.php</strong> shortcode to display either custom or pre-defined signoff boxes</li>
+                <li><strong>table.php</strong> Bootstrap tables</li>
+                <li><strong>tabs.php</strong> Bootstrap tabs</li>
+                <li><strong>toggles.php</strong> Bootstrap toggles and accordions</li>
+                <li><strong>tooltips.php</strong> Bootstrap tooltips</li>
+                <li><strong>video.php</strong> shortcode to easily embed Youtube and Vimeo videos</li>
+            </ul>
+        </li>
+        <li><strong>widgets</strong> the folder containing all of the widget classes
+        	<ul>
+                <li><strong>widget-latest-articles.php</strong> displays latest articles from specified categories</li>
+                <li><strong>widget-list-paged.php</strong> displays a list of articles with sorting and pagination</li>
+                <li><strong>widget-reviews.php</strong> displays list of latest reviews</li>
+                <li><strong>widget-sections.php</strong> displays tabs of specified category sections</li>
+                <li><strong>widget-social-counts.php</strong> displays number of Twitter followers, Facebook fans, and Google+ connections</li>
+                <li><strong>widget-social-tabs.php</strong> displays various social network profiles in a tab format</li>
+                <li><strong>widget-top-reviewed.php</strong> displays top reviewed from various minisites for a certain timeframe</li>
+                <li><strong>widget-top-ten.php</strong> widget version of the top ten carousel</li>
+                <li><strong>widget-trending.php</strong> widget version of the trending carousel</li>                
+            </ul>
+        </li>
+        <li><strong>admin</strong>
+        	<ul>
+            	<li><strong>admin.php</strong> the framework of the admin panel, creates the itAdmin class containing file includes, actions, filters, theme supports, and localization</li>
+                <li><strong>core.php</strong> all core functions used throughout the admin panel including AJAX messages, importing and exporting functions, demo settings encoded code strings, and arrays of available fonts and icons</li>
+                <li><strong>it-options.php</strong> creates arrays of all options in the theme options admin panel</li>
+                <li><strong>meta-awards.php</strong> creates options that appear in the awards meta box on post edit screens</li>
+                <li><strong>meta-badges.php</strong> creates options that appear in the badges meta box on post edit screens</li>
+                <li><strong>meta-details.php</strong> creates options that appear in the details meta box on post edit screens</li>
+                <li><strong>meta-directory.php</strong> creates options that appear in the directory meta box on page edit screens</li>
+                <li><strong>meta-page.php</strong> creates options that appear for all page edit screens</li>
+                <li><strong>meta-post.php</strong> creates options that appear for all post edit screens</li>
+                <li><strong>meta-reactions.php</strong> creates options that appear in the reactions meta box on post edit screens</li>
+                <li><strong>meta-reset.php</strong> creates options that appear in the reset meta box on post edit screens</li>
+                <li><strong>meta-review.php</strong> creates options that appear in the review meta box on post edit screens</li>
+                <li><strong>metaboxes-generator.php</strong> the class that creates the metaboxes</li>
+                <li><strong>option-generator.php</strong> the class that all options use to create theme options</li>
+                <li><strong>scripts.php</strong> style and script enqueueing for the admin area</li>
+                <li><strong>shortcode-generator.php</strong> class that takes the shortcode files and turns them into usable objects</li>
+            </ul>
+        </li>
+        
+    </ul> 
+    
+    </div>  
+    
+    </div>
+    
+</section>
+
+<section id="design">                
+    
+    <h1>Design Assets</h1>
+    
+    <p>This theme contains both a compressed, non-layered version and a layered PNG version of every template image. If you want to edit one of the images within the theme's images/ folder you will notice that if you open it in a graphics editor it is just a flattened bitmap. Instead, look inside the PNG folder which comes inside of your main theme download folder from ThemeForest and find the corresponding image. You can open it in a graphics editor and make custom changes since it is a fully layered PNG version of the image. If you cannot find a corresponding version of the image you're trying to edit please contact support and let us know so we can provide you with the image.</p>
+    
+    <p>Addionally we have made available the layered design PNGs and PSDs for your convenience. These files are contained within either the PNG or the PSD folder (which is in the same location as the PNG folder mentioned above). You can open any of the PSDs in a capable graphics editor (such as Photoshop) and quickly find any part of the theme you're looking for. Alternatively you can open the corresponding PNG file in a capable graphics editor (such as Fireworks) and get the same access as the PSD version. This theme was designed using Fireworks and PNGs as opposed to Photoshop and PSDs, so the best option would be to edit the PNGs since they were converted retroactively into PSDs and not the other way around.</p>
+    
+    <p>These are the design files provided (they are named the same in both the PNG and PSD folders):</p>
+    
+    <p>
+    <div class="well">
+    <ul>
+    	<li><strong>loop.png/.psd</strong> design elements for all loop pages (i.e. non-single pages)</li>
+        <li><strong>single.png/.psd</strong> design elements for all single pages, including all three post layouts in one file</li>
+    </ul>
+    </div>
+    </p>
+    
+    <p>
+    <span class="label label-info">Tip</span> If you cannot find a corresponding image in the PNG folder it likely means there is no layered version available, such as for category icons or very simple one-color graphical elements. However just to be sure we haven't missed it, feel free to contact us and ask about it.
+    </p>
+    
+</section>
+
+<section id="using">             
+    
+    <h1>Using The Theme</h1>
+    
+    <div class="clearfix">    
+               
+            
+        
+        <p>
+        The following guide was written to show you how to use all of the various components that come with the theme. You should take a look at the FAQ and the screencasts (available in the <a href="http://www.industrialthemes.com/implicit/support/" target="_blank">support portal</a>) which address further specific important information about using the theme. <div class="pull-left"><img src="http://www.brianmcculloh.com/files/documentation/implicit-help-tip.png" class="img-circle"></div> Also very useful are the help tips located all throughout the theme options pages and single post/page layout options panels. Just hover over the question mark whenever you see one and further information about that option will be displayed. This is done to keep the overall look of the theme options pages as light as possible while still maintaining high usability. 
+        </p>
+        
+        <p>
+        This theme is very versatile and was designed to be used for almost any kind of content or site setup. For demonstration purposes we will use the live demo for all of the examples given in this guide in order to help you understand the theme to its full potential.
+        </p>
+    
+    </div>    
+    
+    <h3 id="frontpage">Your Front Page</h3>
+    
+    <div class="clearfix">
+    
+    	<p>
+        The first thing you'll want to do after activating the theme is to setup your site's front page. Go to Settings >> Reading and locate the setting <strong>Front page displays</strong> and make sure it is set as "Your latest posts". Then go into your Theme Options >> Page Builders screen and the first page builder will be for the front page. If you leave this blank by default your front page will display the Infinite List component and nothing else (except the footer and side navigation which appear on all pages).
+        </p>
+    
+    	<div class="center-block">    
+        	<img src="http://www.brianmcculloh.com/files/documentation/implicit-front-page.png" class="img-thumbnail img-responsive">            
+        </div>
+        
+        <p>
+        Make the following selections for the front page layout page builder:
+        </p>
+        
+        <ol>
+        	<li>Infinite Grid</li>
+            <li>Trending</li>
+            <li>Headliner</li>
+        </ol>
+        
+        <p>
+        This will cause the front page to use three page builders in the order that you selected them. First it will display an infinite grid of all of your posts, followed by the trending slider, followed by the headliner. If you re-order those components they will be re-ordered on your site front-end as well, and if you added or removed more components that would also be reflected on your site front page.
+        </p>
+        
+        <p class="bg-info text-info"><span class="label label-info">Remember</span> If you have a caching plugin active such as W3 Total Cache or WP Super Cache, making changes to theme options will require you to flush/empty your cache before they are reflected on your site's front end.</p>
+        
+        <p>        
+        Next go to the Theme Options >> Post Loops screen and locate the <strong>Grid Layouts</strong> section.
+        </p>
+        
+        <div class="center-block"> 
+            <img src="http://www.brianmcculloh.com/files/documentation/implicit-post-loops.png" class="img-thumbnail img-responsive">
+            <img src="http://www.brianmcculloh.com/files/documentation/implicit-grid-layout.png" class="img-thumbnail img-responsive">        
+        </div>
+        
+        <p>
+        Make the following selections for the options present:
+        </p>
+        
+        <ul>
+        	<li><strong>Number of rows:</strong> 9</li>
+            <li><strong>Wide post frequency:</strong> Every 3 rows</li>
+            <li><strong>Wide post start position:</strong> 1</li>
+        </ul>
+        
+        <p>
+        This will cause 9 total rows of posts to display before the <em>LOAD MORE</em> button is displayed. Each time the load more button is clicked, 9 more rows will display at the end of the post loop. This will also set it so that every 3 rows will be a wide-format post, beginning with the very first row. So the total number of posts that will be displayed on the page with the above options is <code>(9 x 3) - (2 x the number of wide rows visible)</code> which in this particular case results in 21 posts.
+        </p>
+        
+        <p>That's it! Your front page will now be setup just like the live demo and you are ready to move on to more of the theme's features discussed below.</p>
+    
+    </div>    
+    
+    <h3 id="pagebuilders">Page Builders</h3>
+    
+    <div class="clearfix">
+    
+    	<p>
+        We have already shown how to use one of the page builders (the Infinite Grid component) above in the front page section, so now we will discuss the other available page builders within the theme. The page builder process is comprised of two main components:
+        </p>
+        
+        <ol>
+        	<li><strong>Assigning</strong> the page builder components</li>
+            <li><strong>Adjusting</strong> the settings of each individual page builder component</li>
+        </ol>
+    
+    	<p class="bg-success text-success"><span class="label label-success">Helpful Tip</span> You can think of it this way: first you tell them where to go, then you tell them what to do once they are there.</p>
+        
+        <p>
+        For this example we'll use a scenario that is not present on the live demo. Let's say we want all archive listing pages to have a blog format instead of a grid format, and we want to use pagination controls instead of the load more infinite control. And let's also say we want to display the top ten posts from this month in the "Books" category above the archive loop, excluding posts that have the "Headliner" tag. Finally, let's say we want to display a custom message to the user below the loop of posts. Here's how we would accomplish that:
+        </p>
+        
+        <p><strong>First, assign the page builders</strong> by accessing the Theme Options >> Page Builders screen. We are adjusting the layout of the archive listing pages, so we'll locate the <strong>Archive Layout</strong> section.
+        
+        <div class="center-block">    
+        	<img src="http://www.brianmcculloh.com/files/documentation/implicit-archive-builder.png" class="img-thumbnail img-responsive">            
+        </div>
+        
+        <p>
+        Make the following selections for the page builder:
+        </p>
+        
+        <ul>
+        	<li>Top Ten</li>
+            <li>Paged Blog</li>
+            <li>Custom HTML</li>
+        </ul>
+        
+        <p><strong>Now, adjust the settings</strong> of the components by accessing the Theme Options >> Page Builder Setup screen.</p>
+        
+        <div class="center-block">    
+        	<img src="http://www.brianmcculloh.com/files/documentation/implicit-page-builder-setup.png" class="img-thumbnail img-responsive">            
+        </div>
+        
+        <p>
+        We'll leave the paged blog builder at the default settings since we don't need to manually change the way posts are displayed in archive listing pages (WordPress will take care of all of that for us). Scroll down to the <strong>Top Ten</strong> section and select the options as shown in the screenshot:
+        </p>
+        
+        <div class="center-block">    
+        	<img src="http://www.brianmcculloh.com/files/documentation/implicit-top-ten.png" class="img-thumbnail img-responsive">            
+        </div>
+        
+        <p>The category and tag limiting/excluding lists work together and not against each other. For example, if you select two limiting categories and two excluding tags, the results will include posts in <strong>either</strong> of the two limiting categories (they don't have to be in both categories), but not in <strong>either</strong> of the two excluding tags (posts don't have to have both tags to be excluded).</p>
+        
+        <p class="bg-info text-info"><span class="label label-info">Clarification</span> "Limiting" a category or set of categories means you want only posts within that category or set of categories to display in the results (i.e. you are limiting the results to that category or set of categories). "Excluding" a category or set of categories means you want to exclude posts within that category or set of categories from the results.</p>
+        
+        <p>Lastly, scroll down to the <strong>Custom HTML</strong> section and enter in your custom message that you want to display to the user there. Anything you put into this box will display on the front-end, including HTML markup code and even shortcodes.</p>
+        
+        <div class="center-block">    
+        	<img src="http://www.brianmcculloh.com/files/documentation/implicit-custom-html.png" class="img-thumbnail img-responsive">            
+        </div>
+        
+        <p>That's the gist of the page builders. You can mix and match any combination you want, and just remember all of the settings specific to each page builder component are available in the page builder setup screen. Removing or adjusting page builder components will not cause their settings to be lost or reset.</p>    
+    
+    </div>
+    
+    <h3 id="shortcodes">Shortcode Generator</h3>
+    
+    <div class="clearfix">
+    
+    	<p>The theme has a very handy and powerful shortcode generator built in. You can access it from the page and post editing pages below the post content editor. Everything you need for creating and inserting shortcodes into your content is available in one place.</p>
+        
+        <div class="center-block">    
+        	<img src="http://www.brianmcculloh.com/files/documentation/implicit-shortcodes.png" class="img-thumbnail img-responsive">            
+        </div>
+        
+        <p>We'll walk through three examples from the live demo which will give you enough understanding to use the rest of the shortcodes. We'll use the Shortcodes and Typography page present in the live demo. First we'll do something simple and create a button. Then we'll "popover" enable it. Finally we'll do something a little more complicated and create a series of tabs.</p>
+        
+        <p>First, select <strong>Buttons</strong> from the list of shortcodes in the shortcode generator. Then add the content and make the selections as shown in the screenshot below, and click Send Shortcode to Editor &raquo; to see the resulting shortcode syntax in your post content editor (also shown in the screenshot below):</p>
+        
+        <div class="center-block">    
+        	<img src="http://www.brianmcculloh.com/files/documentation/implicit-shortcode-button.png" class="img-thumbnail img-responsive">            
+        </div>
+        
+        <p>That's all you need for a button. Now we'll give it a popover effect. First, select the entire button shortcode in your content editor and copy it. So this is what you want to copy: <code>[button type="button" variation="btn-primary"]Cool Button![/button]</code>.</p>
+        
+        <p>Then, in the shortcode generator, select <strong>Popovers</strong>. Paste in the code you previously copied to the Popover-Enabled Content textbox and make the selections as shown in the screenshot below, and click Send Shorcode to Editor &raquo; again to see the second shortcode added to your content (also shown in the screenshot below):</p>
+        
+        <div class="center-block">    
+        	<img src="http://www.brianmcculloh.com/files/documentation/implicit-shortcode-popover.png" class="img-thumbnail img-responsive">            
+        </div>
+        
+        <p>If you save and view your post you'll notice two buttons on the page, the first one won't do anything, and the second one will have a popover effect. Lastly, we'll create our tabs shortcode and add it the the post as well.</p>
+        
+        <p>Select <strong>Tabs</strong> form the list of shortcodes and then add the content and make the selections as indicated in the screenshot below, and click Send Shortcode to Editor &arquo; to see the resulting shortcode syntax in your content editor (also shown in the screenshot below):</p>
+        
+        <div class="center-block">    
+        	<img src="http://www.brianmcculloh.com/files/documentation/implicit-shortcode-tabs.png" class="img-thumbnail img-responsive">            
+        </div>
+        
+        <p>That's it! The rest of the shortcodes work the same way. You just select the shortcode from the list, add/edit the options and content for the shortcode, and send it to the editor. You can nest shortcodes within other shortcodes just like the popover example above. The possibilities are endless!</p>
+        
+        <p class="bg-success text-success"><span class="label label-success">Helpful Tip</span> Once the shortcode is added to your content editor, you don't have to use the Shortcode Generator again if you want to modify it. You can change the content or options for the shortcode directly in the content editor. Of course, if you feel more comfortable using the fool-proof generator to re-do your shortcode with the changes, it is always available to use.</p>
+        
+        <p>You can view all of the resulting markup on the live demo shortcodes page without having to import the demo content if you need it for reference. Use the button below to expand it.</p>
+        
+        <button type="button" class="btn btn-default btn-lg" data-toggle="collapse" data-target="#shortcodescode">View Content</button>
+    
+        <div id="shortcodescode" class="collapse out">
+        
+        <pre>
+        
+&lt;h3&gt;Alert Boxes&lt;/h3&gt;
+
+&#91;alert variation="alert-warning" dismiss="dismiss"&#93;Check out this awesome alert box. You can put as little or as much content within it as you want. You can even put HTML and shortcodes directly in here, and you can selectively enable and disable the Dismiss button on the right.&#91;/alert&#93;
+
+&#91;alert variation="alert-danger" dismiss="dismiss"&#93;Check out this awesome alert box. You can put as little or as much content within it as you want. You can even put HTML and shortcodes directly in here, and you can selectively enable and disable the Dismiss button on the right.&#91;/alert&#93;
+
+&#91;alert variation="alert-success" dismiss="dismiss"&#93;Check out this awesome alert box. You can put as little or as much content within it as you want. You can even put HTML and shortcodes directly in here, and you can selectively enable and disable the Dismiss button on the right.&#91;/alert&#93;
+
+&#91;alert variation="alert-info" dismiss="dismiss"&#93;Check out this awesome alert box. You can put as little or as much content within it as you want. You can even put HTML and shortcodes directly in here, and you can selectively enable and disable the Dismiss button on the right.&#91;/alert&#93;
+
+&#91;divider_top&#93;
+
+&lt;h3&gt;Buttons&lt;/h3&gt;
+
+&#91;button type="link" link="http://www.industrialthemes.com" size="btn-xs" variation="btn-default"&#93;Tiny&#91;/button&#93;&#91;button type="link" link="http://www.industrialthemes.com" size="btn-xs" variation="btn-primary"&#93;Tiny&#91;/button&#93;&#91;button type="link" link="http://www.industrialthemes.com" size="btn-xs" variation="btn-info"&#93;Tiny&#91;/button&#93;&#91;button type="link" link="http://www.industrialthemes.com" size="btn-xs" variation="btn-success"&#93;Tiny&#91;/button&#93;&#91;button type="link" link="http://www.industrialthemes.com" size="btn-xs" variation="btn-warning"&#93;Tiny&#91;/button&#93;&#91;button type="link" link="http://www.industrialthemes.com" size="btn-xs" variation="btn-danger"&#93;Tiny&#91;/button&#93;
+
+&#91;button type="link" link="http://www.industrialthemes.com" size="btn-sm" variation="btn-default"&#93;Small&#91;/button&#93;&#91;button type="link" link="http://www.industrialthemes.com" size="btn-sm" variation="btn-primary"&#93;Small&#91;/button&#93;&#91;button type="link" link="http://www.industrialthemes.com" size="btn-sm" variation="btn-info"&#93;Small&#91;/button&#93;&#91;button type="link" link="http://www.industrialthemes.com" size="btn-sm" variation="btn-success"&#93;Small&#91;/button&#93;&#91;button type="link" link="http://www.industrialthemes.com" size="btn-sm" variation="btn-warning"&#93;Small&#91;/button&#93;&#91;button type="link" link="http://www.industrialthemes.com" size="btn-sm" variation="btn-danger"&#93;Small&#91;/button&#93;
+
+&#91;button type="link" link="http://www.industrialthemes.com" variation="btn-default"&#93;Medium&#91;/button&#93;&#91;button type="link" link="http://www.industrialthemes.com" variation="btn-primary"&#93;Medium&#91;/button&#93;&#91;button type="link" link="http://www.industrialthemes.com" variation="btn-info"&#93;Medium&#91;/button&#93;&#91;button type="link" link="http://www.industrialthemes.com" variation="btn-success"&#93;Medium&#91;/button&#93;&#91;button type="link" link="http://www.industrialthemes.com" variation="btn-warning"&#93;Medium&#91;/button&#93;&#91;button type="link" link="http://www.industrialthemes.com" variation="btn-danger"&#93;Medium&#91;/button&#93;
+
+&#91;button type="link" link="http://www.industrialthemes.com" size="btn-lg" variation="btn-default"&#93;Large&#91;/button&#93;&#91;button type="link" link="http://www.industrialthemes.com" size="btn-lg" variation="btn-primary"&#93;Large&#91;/button&#93;&#91;button type="link" link="http://www.industrialthemes.com" size="btn-lg" variation="btn-info"&#93;Large&#91;/button&#93;&#91;button type="link" link="http://www.industrialthemes.com" size="btn-lg" variation="btn-success"&#93;Large&#91;/button&#93;&#91;button type="link" link="http://www.industrialthemes.com" size="btn-lg" variation="btn-warning"&#93;Large&#91;/button&#93;&#91;button type="link" link="http://www.industrialthemes.com" size="btn-lg" variation="btn-danger"&#93;Large&#91;/button&#93;
+
+&#91;button type="link" link="http://www.industrialthemes.com" size="btn-lg" variation="btn-default" block="btn-block"&#93;Block Level&#91;/button&#93;
+
+&#91;button type="link" link="http://www.industrialthemes.com" size="btn-lg" variation="btn-primary" block="btn-block"&#93;Block Level&#91;/button&#93;
+
+&#91;button type="link" link="http://www.industrialthemes.com" size="btn-lg" variation="btn-info" block="btn-block"&#93;Block Level&#91;/button&#93;
+
+&#91;button type="link" link="http://www.industrialthemes.com" size="btn-lg" variation="btn-success" block="btn-block"&#93;Block Level&#91;/button&#93;
+
+&#91;button type="link" link="http://www.industrialthemes.com" size="btn-lg" variation="btn-warning" block="btn-block"&#93;Block Level&#91;/button&#93;
+
+&#91;button type="link" link="http://www.industrialthemes.com" size="btn-lg" variation="btn-danger" block="btn-block"&#93;Block Level&#91;/button&#93;
+
+&#91;divider_top&#93;
+
+&lt;h3&gt;Progress Bars&lt;/h3&gt;
+
+&#91;progress size="80" variation="progress-bar-info"&#93;
+
+&#91;progress size="86" variation="progress-bar-success"&#93;
+
+&#91;progress size="90" variation="progress-bar-warning"&#93;
+
+&#91;progress size="95" variation="progress-bar-danger"&#93;
+
+&#91;progress size="80" variation="progress-bar-info" striped="progress-striped" animated="active"&#93;
+
+&#91;progress size="86" variation="progress-bar-success" striped="progress-striped" animated="active"&#93;
+
+&#91;progress size="90" variation="progress-bar-warning" striped="progress-striped" animated="active"&#93;
+
+&#91;progress size="95" variation="progress-bar-danger" striped="progress-striped" animated="active"&#93;
+
+&#91;divider_top&#93;
+
+&lt;h3&gt;Labels & Badges&lt;/h3&gt;
+
+&#91;label variation="label-default"&#93;label&#91;/label&#93;&#91;label variation="label-primary"&#93;label&#91;/label&#93;&#91;label variation="label-success"&#93;label&#91;/label&#93;&#91;label variation="label-info"&#93;label&#91;/label&#93;&#91;label variation="label-warning"&#93;label&#91;/label&#93;&#91;label variation="label-danger"&#93;label&#91;/label&#93;
+
+&#91;badge&#93;12&#91;/badge&#93;&#91;badge&#93;24&#91;/badge&#93;&#91;badge&#93;badge&#91;/badge&#93;&#91;badge&#93;5.3&#91;/badge&#93;&#91;badge&#93;any text you want&#91;/badge&#93;
+
+&#91;divider_top&#93;
+
+&lt;h3&gt;Tooltips&lt;/h3&gt;
+
+&#91;tooltip text="Voila - The Tooltip!" placement="top"&#93;&#91;label variation="label-default"&#93;Top Tooltip&#91;/label&#93;&#91;/tooltip&#93;
+
+&#91;tooltip text="Voila - The Tooltip!" placement="right"&#93;&#91;label variation="label-default"&#93;Right Tooltip&#91;/label&#93;&#91;/tooltip&#93;
+
+&#91;tooltip text="Voila - The Tooltip!" placement="bottom"&#93;&#91;label variation="label-default"&#93;Bottom Tooltip&#91;/label&#93;&#91;/tooltip&#93;
+
+&#91;tooltip text="Voila - The Tooltip!" placement="left"&#93;&#91;label variation="label-default"&#93;Left Tooltip&#91;/label&#93;&#91;/tooltip&#93;
+
+&#91;divider_top&#93;
+
+&lt;h3&gt;Popovers&lt;/h3&gt;
+
+&#91;popover title="Popover Title" body="Here is the body text or content for the popover" placement="top"&#93;&#91;button type="button" size="btn-lg" variation="btn-default"&#93;Top Popover&#91;/button&#93;&#91;/popover&#93;&#91;popover title="Popover Title" body="Here is the body text or content for the popover" placement="right"&#93;&#91;button type="button" size="btn-lg" variation="btn-default"&#93;Right Popover&#91;/button&#93;&#91;/popover&#93;&#91;popover title="Popover Title" body="Here is the body text or content for the popover" placement="bottom"&#93;&#91;button type="button" size="btn-lg" variation="btn-default"&#93;Bottom Popover&#91;/button&#93;&#91;/popover&#93;&#91;popover title="Popover Title" body="Here is the body text or content for the popover" placement="left"&#93;&#91;button type="button" size="btn-lg" variation="btn-default"&#93;Left Popover&#91;/button&#93;&#91;/popover&#93;
+
+&#91;divider_top&#93;
+
+&lt;h3&gt;Modal Dialog Box&lt;/h3&gt;
+
+&#91;modal heading="HEADING GOES HERE" footer="optional footer text" dismiss_header="dismiss_header" dismiss_footer="dismiss_footer" text="Click To Open Modal" size="btn-lg" variation="btn-primary"&#93;
+
+&lt;h5&gt;This is the body content of the modal&lt;/h5&gt; 
+
+You can put any text that you want here, including HTML and shortcodes. For instance, here's a popover button and a progress bar: 
+&#91;clear&#93;
+&#91;popover title="Popover Title" body="Here is the body text or content for the popover" placement="top"&#93;&#91;button type="button" size="btn-lg" variation="btn-warning"&#93;Top Popover&#91;/button&#93;&#91;/popover&#93;
+&#91;clear&#93;
+&#91;progress size="86" variation="progress-bar-success" striped="progress-striped" animated="active"&#93;
+&lt;h5&gt;Some more content for fun&lt;/h5&gt;
+Mauris vehicula condimentum lorem, eleifend adipiscing magna porttitor tincidunt. Sed vel enim ullamcorper, tristique nisi et, commodo neque. Vestibulum volutpat quam vel erat adipiscing dictum. Nullam tincidunt nunc vel convallis fermentum. Donec erat lectus, vehicula sed arcu vitae, sodales tristique nibh. Praesent risus nibh, ultricies scelerisque rutrum a, molestie ac orci. Sed et cursus felis. Donec sed tristique est. Aliquam vel massa a sem aliquam bibendum. Sed in feugiat justo, vitae ultrices lacus. Aenean venenatis pulvinar congue. Aenean in lorem nec justo porttitor mattis.
+&#91;clear&#93;
+Praesent vitae orci tortor. Nunc commodo turpis nisl, et pellentesque turpis fermentum in. Sed a tellus in neque convallis eleifend. Maecenas mattis nibh id imperdiet sagittis. Cras vehicula sollicitudin velit sed blandit. Nunc fermentum metus hendrerit quam ultricies, eget cursus elit semper. Duis tincidunt nunc et facilisis faucibus. Quisque tincidunt luctus gravida. Proin aliquam et mauris id rutrum.
+
+&#91;/modal&#93;
+
+&#91;divider_top&#93;
+
+&lt;h3&gt;Tabs&lt;/h3&gt;
+
+&#91;tabs style="nav-tabs"&#93;
+&#91;tab title="Tab 1"&#93;Praesent vitae orci tortor. Nunc commodo turpis nisl, et pellentesque turpis fermentum in. Sed a tellus in neque convallis eleifend. Maecenas mattis nibh id imperdiet sagittis. Cras vehicula sollicitudin velit sed blandit. Nunc fermentum metus hendrerit quam ultricies, eget cursus elit semper. Duis tincidunt nunc et facilisis faucibus. Quisque tincidunt luctus gravida. Proin aliquam et mauris id rutrum.
+
+Donec vitae orci vitae mi varius molestie. Aliquam erat volutpat. Donec faucibus urna nec accumsan tempus. Vivamus venenatis risus sed orci dictum fringilla. Vestibulum dignissim adipiscing nunc, ac eleifend mi posuere ut. Suspendisse vitae porta lectus. Nullam ut eros ac velit semper sodales sed nec sem. Ut et tincidunt felis. Curabitur aliquet iaculis erat, sit amet facilisis risus gravida eu. Curabitur consectetur elit non felis gravida congue. Curabitur quis leo est. Nam varius sed ligula in sollicitudin. Donec nisi ante, venenatis eget facilisis eu, rhoncus quis ligula. Curabitur varius, massa a fringilla condimentum, ipsum diam varius ligula, ac posuere metus neque a enim.&#91;/tab&#93;
+&#91;tab title="Tab 2"&#93;Praesent vitae orci tortor. Nunc commodo turpis nisl, et pellentesque turpis fermentum in. Sed a tellus in neque convallis eleifend. Maecenas mattis nibh id imperdiet sagittis. Cras vehicula sollicitudin velit sed blandit. Nunc fermentum metus hendrerit quam ultricies, eget cursus elit semper. Duis tincidunt nunc et facilisis faucibus. Quisque tincidunt luctus gravida. Proin aliquam et mauris id rutrum.
+
+Donec vitae orci vitae mi varius molestie. Aliquam erat volutpat. Donec faucibus urna nec accumsan tempus. Vivamus venenatis risus sed orci dictum fringilla. Vestibulum dignissim adipiscing nunc, ac eleifend mi posuere ut. Suspendisse vitae porta lectus. Nullam ut eros ac velit semper sodales sed nec sem. Ut et tincidunt felis. Curabitur aliquet iaculis erat, sit amet facilisis risus gravida eu. Curabitur consectetur elit non felis gravida congue. Curabitur quis leo est.&#91;/tab&#93;
+&#91;tab title="Tab 3"&#93;Praesent vitae orci tortor. Nunc commodo turpis nisl, et pellentesque turpis fermentum in. Sed a tellus in neque convallis eleifend. elit semper. Duis tincidunt nunc et facilisis faucibus. Quisque tincidunt luctus gravida. Proin aliquam et mauris id rutrum.
+
+Donec vitae orci vitae mi varius molestie. Aliquam erat volutpat. Donec faucibus urna nec accumsan tempus. Vivamus venenatis risus sed orci dictum fringilla. Vestibulum dignissim adipiscing nunc, ac eleifend mi posuere ut. Suspendisse vitae porta lectus. Nullam ut eros ac velit semper sodales sed nec sem. Ut et tincidunt felis. Curabitur aliquet iaculis erat, sit amet facilisis risus gravida eu. Curabitur consectetur elit non felis gravida congue. Curabitur quis leo est. Nam varius sed ligula in sollicitudin. Donec nisi ante, venenatis eget facilisis eu, rhoncus quis ligula. Curabitur varius, massa a fringilla condimentum, ipsum diam varius ligula, ac posuere metus neque a enim.&#91;/tab&#93;
+&#91;/tabs&#93;
+
+&#91;tabs style="nav-pills"&#93;
+&#91;tab title="Tab 1"&#93;Praesent vitae orci tortor. Nunc commodo turpis nisl, et pellentesque turpis fermentum in. Sed a tellus in neque convallis eleifend. Maecenas mattis nibh id imperdiet sagittis. Cras vehicula sollicitudin velit sed blandit. Nunc fermentum metus hendrerit quam ultricies, eget cursus elit semper. Duis tincidunt nunc et facilisis faucibus. Quisque tincidunt luctus gravida. Proin aliquam et mauris id rutrum.
+
+Donec vitae orci vitae mi varius molestie. Aliquam erat volutpat. Donec faucibus urna nec accumsan tempus. Vivamus venenatis risus sed orci dictum fringilla. Vestibulum dignissim adipiscing nunc, ac eleifend mi posuere ut. Suspendisse vitae porta lectus. Nullam ut eros ac velit semper sodales sed nec sem. Ut et tincidunt felis. Curabitur aliquet iaculis erat, sit amet facilisis risus gravida eu. Curabitur consectetur elit non felis gravida congue. Curabitur quis leo est. Nam varius sed ligula in sollicitudin. Donec nisi ante, venenatis eget facilisis eu, rhoncus quis ligula. Curabitur varius, massa a fringilla condimentum, ipsum diam varius ligula, ac posuere metus neque a enim.&#91;/tab&#93;
+&#91;tab title="Tab 2"&#93;Praesent vitae orci tortor. Nunc commodo turpis nisl, et pellentesque turpis fermentum in. Sed a tellus in neque convallis eleifend. Maecenas mattis nibh id imperdiet sagittis. Cras vehicula sollicitudin velit sed blandit. Nunc fermentum metus hendrerit quam ultricies, eget cursus elit semper. Duis tincidunt nunc et facilisis faucibus. Quisque tincidunt luctus gravida. Proin aliquam et mauris id rutrum.
+
+Donec vitae orci vitae mi varius molestie. Aliquam erat volutpat. Donec faucibus urna nec accumsan tempus. Vivamus venenatis risus sed orci dictum fringilla. Vestibulum dignissim adipiscing nunc, ac eleifend mi posuere ut. Suspendisse vitae porta lectus. Nullam ut eros ac velit semper sodales sed nec sem. Ut et tincidunt felis. Curabitur aliquet iaculis erat, sit amet facilisis risus gravida eu. Curabitur consectetur elit non felis gravida congue. Curabitur quis leo est.&#91;/tab&#93;
+&#91;tab title="Tab 3"&#93;Praesent vitae orci tortor. Nunc commodo turpis nisl, et pellentesque turpis fermentum in. Sed a tellus in neque convallis eleifend. elit semper. Duis tincidunt nunc et facilisis faucibus. Quisque tincidunt luctus gravida. Proin aliquam et mauris id rutrum.
+
+Donec vitae orci vitae mi varius molestie. Aliquam erat volutpat. Donec faucibus urna nec accumsan tempus. Vivamus venenatis risus sed orci dictum fringilla. Vestibulum dignissim adipiscing nunc, ac eleifend mi posuere ut. Suspendisse vitae porta lectus. Nullam ut eros ac velit semper sodales sed nec sem. Ut et tincidunt felis. Curabitur aliquet iaculis erat, sit amet facilisis risus gravida eu. Curabitur consectetur elit non felis gravida congue. Curabitur quis leo est. Nam varius sed ligula in sollicitudin. Donec nisi ante, venenatis eget facilisis eu, rhoncus quis ligula. Curabitur varius, massa a fringilla condimentum, ipsum diam varius ligula, ac posuere metus neque a enim.&#91;/tab&#93;
+&#91;/tabs&#93;
+
+&#91;divider_top&#93;
+
+&lt;h3&gt;Icons&lt;/h3&gt;
+
+&#91;tabs&#93;
+&#91;tab title="Standard"&#93;
+
+&lt;div style="color:#000;font-size:35px;"&gt;
+&#91;icons icon="acrobat"&#93;&#91;icons icon="alert"&#93;&#91;icons icon="appstore"&#93;&#91;icons icon="down"&#93;&#91;icons icon="down-bold"&#93;&#91;icons icon="down-fat"&#93;&#91;icons icon="down-open"&#93;&#91;icons icon="left"&#93;&#91;icons icon="left-fat"&#93;&#91;icons icon="left-open"&#93;&#91;icons icon="right"&#93;&#91;icons icon="right-fat"&#93;&#91;icons icon="right-open"&#93;&#91;icons icon="up"&#93;&#91;icons icon="up-bold"&#93;&#91;icons icon="up-fat"&#93;&#91;icons icon="up-open"&#93;&#91;icons icon="attach"&#93;&#91;icons icon="attention"&#93;&#91;icons icon="awarded"&#93;&#91;icons icon="basket"&#93;&#91;icons icon="battery"&#93;&#91;icons icon="beaker"&#93;&#91;icons icon="book"&#93;&#91;icons icon="bookmark"&#93;&#91;icons icon="brush"&#93;&#91;icons icon="builder"&#93;&#91;icons icon="camera"&#93;&#91;icons icon="category"&#93;&#91;icons icon="check"&#93;&#91;icons icon="chrome"&#93;&#91;icons icon="cloud"&#93;&#91;icons icon="coffee"&#93;&#91;icons icon="commented"&#93;&#91;icons icon="comments"&#93;&#91;icons icon="credit-card"&#93;&#91;icons icon="floppy"&#93;&#91;icons icon="doc"&#93;&#91;icons icon="dollar"&#93;&#91;icons icon="dropbox"&#93;&#91;icons icon="email"&#93;&#91;icons icon="facebook"&#93;&#91;icons icon="fire"&#93;&#91;icons icon="firefox"&#93;&#91;icons icon="first"&#93;&#91;icons icon="flag"&#93;&#91;icons icon="flickr"&#93;&#91;icons icon="folder-open"&#93;&#91;icons icon="food"&#93;&#91;icons icon="footer"&#93;&#91;icons icon="forward"&#93;&#91;icons icon="gauge"&#93;&#91;icons icon="cog"&#93;&#91;icons icon="cog-alt"&#93;&#91;icons icon="globe"&#93;&#91;icons icon="gmail"&#93;&#91;icons icon="googleplus"&#93;&#91;icons icon="grid"&#93;&#91;icons icon="html5"&#93;&#91;icons icon="help-circled"&#93;&#91;icons icon="home"&#93;&#91;icons icon="ie"&#93;&#91;icons icon="info-circled"&#93;&#91;icons icon="instagram"&#93;&#91;icons icon="key"&#93;&#91;icons icon="laptop"&#93;&#91;icons icon="last"&#93;&#91;icons icon="lastfm"&#93;&#91;icons icon="leaf"&#93;&#91;icons icon="left-hand"&#93;&#91;icons icon="cc"&#93;&#91;icons icon="liked"&#93;&#91;icons icon="link"&#93;&#91;icons icon="linkedin"&#93;&#91;icons icon="list"&#93;&#91;icons icon="lock"&#93;&#91;icons icon="lock-open"&#93;&#91;icons icon="login"&#93;&#91;icons icon="logout"&#93;&#91;icons icon="loop"&#93;&#91;icons icon="magnet"&#93;&#91;icons icon="minus"&#93;&#91;icons icon="minus-squared"&#93;&#91;icons icon="mobile"&#93;&#91;icons icon="monitor"&#93;&#91;icons icon="moon"&#93;&#91;icons icon="next"&#93;&#91;icons icon="opera"&#93;&#91;icons icon="pages"&#93;&#91;icons icon="password"&#93;&#91;icons icon="pause"&#93;&#91;icons icon="paypal"&#93;&#91;icons icon="pencil"&#93;&#91;icons icon="picasa"&#93;&#91;icons icon="picture"&#93;&#91;icons icon="chart-pie"&#93;&#91;icons icon="pin"&#93;&#91;icons icon="pinterest"&#93;&#91;icons icon="play"&#93;&#91;icons icon="plus"&#93;&#91;icons icon="plus-squared"&#93;&#91;icons icon="previous"&#93;&#91;icons icon="quote-circled"&#93;&#91;icons icon="rss"&#93;&#91;icons icon="random"&#93;&#91;icons icon="recent"&#93;&#91;icons icon="reddit"&#93;&#91;icons icon="register"&#93;&#91;icons icon="reviewed"&#93;&#91;icons icon="right-hand"&#93;&#91;icons icon="scissors"&#93;&#91;icons icon="search"&#93;&#91;icons icon="settings"&#93;&#91;icons icon="sidebar"&#93;&#91;icons icon="signal"&#93;&#91;icons icon="signoff"&#93;&#91;icons icon="skype"&#93;&#91;icons icon="emo-angry"&#93;&#91;icons icon="emo-beer"&#93;&#91;icons icon="emo-coffee"&#93;&#91;icons icon="emo-cry"&#93;&#91;icons icon="emo-devil"&#93;&#91;icons icon="emo-displeased"&#93;&#91;icons icon="emo-grin"&#93;&#91;icons icon="emo-happy"&#93;&#91;icons icon="emo-laugh"&#93;&#91;icons icon="emo-saint"&#93;&#91;icons icon="emo-shoot"&#93;&#91;icons icon="emo-sleep"&#93;&#91;icons icon="emo-squint"&#93;&#91;icons icon="emo-sunglasses"&#93;&#91;icons icon="emo-surprised"&#93;&#91;icons icon="emo-thumbsup"&#93;&#91;icons icon="emo-tongue"&#93;&#91;icons icon="emo-unhappy"&#93;&#91;icons icon="emo-wink2"&#93;&#91;icons icon="emo-wink"&#93;&#91;icons icon="sort"&#93;&#91;icons icon="spin2"&#93;&#91;icons icon="spotify"&#93;&#91;icons icon="star"&#93;&#91;icons icon="star-full"&#93;&#91;icons icon="star-half"&#93;&#91;icons icon="star-half-empty"&#93;&#91;icons icon="stop"&#93;&#91;icons icon="stumbleupon"&#93;&#91;icons icon="style"&#93;&#91;icons icon="suitcase"&#93;&#91;icons icon="tablet"&#93;&#91;icons icon="tag"&#93;&#91;icons icon="target"&#93;&#91;icons icon="thumbs-down"&#93;&#91;icons icon="thumbs-up"&#93;&#91;icons icon="tools"&#93;&#91;icons icon="trending"&#93;&#91;icons icon="truck"&#93;&#91;icons icon="tumblr"&#93;&#91;icons icon="twitter"&#93;&#91;icons icon="username"&#93;&#91;icons icon="users"&#93;&#91;icons icon="video"&#93;&#91;icons icon="viewed"&#93;&#91;icons icon="vimeo"&#93;&#91;icons icon="water"&#93;&#91;icons icon="wifi"&#93;&#91;icons icon="wikipedia"&#93;&#91;icons icon="window"&#93;&#91;icons icon="windows"&#93;&#91;icons icon="wordpress"&#93;&#91;icons icon="wrench"&#93;&#91;icons icon="x"&#93;&#91;icons icon="yahoo"&#93;&#91;icons icon="youtube"&#93;&#91;icons icon="zoom-in"&#93;&#91;icons icon="zoom-out"&#93;
+&lt;/div&gt;
+
+&#91;/tab&#93;
+&#91;tab title="Big & Purple"&#93;
+
+&lt;div style="color:purple;font-size:65px;"&gt;
+&#91;icons icon="acrobat"&#93;&#91;icons icon="alert"&#93;&#91;icons icon="appstore"&#93;&#91;icons icon="down"&#93;&#91;icons icon="down-bold"&#93;&#91;icons icon="down-fat"&#93;&#91;icons icon="down-open"&#93;&#91;icons icon="left"&#93;&#91;icons icon="left-fat"&#93;&#91;icons icon="left-open"&#93;&#91;icons icon="right"&#93;&#91;icons icon="right-fat"&#93;&#91;icons icon="right-open"&#93;&#91;icons icon="up"&#93;&#91;icons icon="up-bold"&#93;&#91;icons icon="up-fat"&#93;&#91;icons icon="up-open"&#93;&#91;icons icon="attach"&#93;&#91;icons icon="attention"&#93;&#91;icons icon="awarded"&#93;&#91;icons icon="basket"&#93;&#91;icons icon="battery"&#93;&#91;icons icon="beaker"&#93;&#91;icons icon="book"&#93;&#91;icons icon="bookmark"&#93;&#91;icons icon="brush"&#93;&#91;icons icon="builder"&#93;&#91;icons icon="camera"&#93;&#91;icons icon="category"&#93;&#91;icons icon="check"&#93;&#91;icons icon="chrome"&#93;&#91;icons icon="cloud"&#93;&#91;icons icon="coffee"&#93;&#91;icons icon="commented"&#93;&#91;icons icon="comments"&#93;&#91;icons icon="credit-card"&#93;&#91;icons icon="floppy"&#93;&#91;icons icon="doc"&#93;&#91;icons icon="dollar"&#93;&#91;icons icon="dropbox"&#93;&#91;icons icon="email"&#93;&#91;icons icon="facebook"&#93;&#91;icons icon="fire"&#93;&#91;icons icon="firefox"&#93;&#91;icons icon="first"&#93;&#91;icons icon="flag"&#93;&#91;icons icon="flickr"&#93;&#91;icons icon="folder-open"&#93;&#91;icons icon="food"&#93;&#91;icons icon="footer"&#93;&#91;icons icon="forward"&#93;&#91;icons icon="gauge"&#93;&#91;icons icon="cog"&#93;&#91;icons icon="cog-alt"&#93;&#91;icons icon="globe"&#93;&#91;icons icon="gmail"&#93;&#91;icons icon="googleplus"&#93;&#91;icons icon="grid"&#93;&#91;icons icon="html5"&#93;&#91;icons icon="help-circled"&#93;&#91;icons icon="home"&#93;&#91;icons icon="ie"&#93;&#91;icons icon="info-circled"&#93;&#91;icons icon="instagram"&#93;&#91;icons icon="key"&#93;&#91;icons icon="laptop"&#93;&#91;icons icon="last"&#93;&#91;icons icon="lastfm"&#93;&#91;icons icon="leaf"&#93;&#91;icons icon="left-hand"&#93;&#91;icons icon="cc"&#93;&#91;icons icon="liked"&#93;&#91;icons icon="link"&#93;&#91;icons icon="linkedin"&#93;&#91;icons icon="list"&#93;&#91;icons icon="lock"&#93;&#91;icons icon="lock-open"&#93;&#91;icons icon="login"&#93;&#91;icons icon="logout"&#93;&#91;icons icon="loop"&#93;&#91;icons icon="magnet"&#93;&#91;icons icon="minus"&#93;&#91;icons icon="minus-squared"&#93;&#91;icons icon="mobile"&#93;&#91;icons icon="monitor"&#93;&#91;icons icon="moon"&#93;&#91;icons icon="next"&#93;&#91;icons icon="opera"&#93;&#91;icons icon="pages"&#93;&#91;icons icon="password"&#93;&#91;icons icon="pause"&#93;&#91;icons icon="paypal"&#93;&#91;icons icon="pencil"&#93;&#91;icons icon="picasa"&#93;&#91;icons icon="picture"&#93;&#91;icons icon="chart-pie"&#93;&#91;icons icon="pin"&#93;&#91;icons icon="pinterest"&#93;&#91;icons icon="play"&#93;&#91;icons icon="plus"&#93;&#91;icons icon="plus-squared"&#93;&#91;icons icon="previous"&#93;&#91;icons icon="quote-circled"&#93;&#91;icons icon="rss"&#93;&#91;icons icon="random"&#93;&#91;icons icon="recent"&#93;&#91;icons icon="reddit"&#93;&#91;icons icon="register"&#93;&#91;icons icon="reviewed"&#93;&#91;icons icon="right-hand"&#93;&#91;icons icon="scissors"&#93;&#91;icons icon="search"&#93;&#91;icons icon="settings"&#93;&#91;icons icon="sidebar"&#93;&#91;icons icon="signal"&#93;&#91;icons icon="signoff"&#93;&#91;icons icon="skype"&#93;&#91;icons icon="emo-angry"&#93;&#91;icons icon="emo-beer"&#93;&#91;icons icon="emo-coffee"&#93;&#91;icons icon="emo-cry"&#93;&#91;icons icon="emo-devil"&#93;&#91;icons icon="emo-displeased"&#93;&#91;icons icon="emo-grin"&#93;&#91;icons icon="emo-happy"&#93;&#91;icons icon="emo-laugh"&#93;&#91;icons icon="emo-saint"&#93;&#91;icons icon="emo-shoot"&#93;&#91;icons icon="emo-sleep"&#93;&#91;icons icon="emo-squint"&#93;&#91;icons icon="emo-sunglasses"&#93;&#91;icons icon="emo-surprised"&#93;&#91;icons icon="emo-thumbsup"&#93;&#91;icons icon="emo-tongue"&#93;&#91;icons icon="emo-unhappy"&#93;&#91;icons icon="emo-wink2"&#93;&#91;icons icon="emo-wink"&#93;&#91;icons icon="sort"&#93;&#91;icons icon="spin2"&#93;&#91;icons icon="spotify"&#93;&#91;icons icon="star"&#93;&#91;icons icon="star-full"&#93;&#91;icons icon="star-half"&#93;&#91;icons icon="star-half-empty"&#93;&#91;icons icon="stop"&#93;&#91;icons icon="stumbleupon"&#93;&#91;icons icon="style"&#93;&#91;icons icon="suitcase"&#93;&#91;icons icon="tablet"&#93;&#91;icons icon="tag"&#93;&#91;icons icon="target"&#93;&#91;icons icon="thumbs-down"&#93;&#91;icons icon="thumbs-up"&#93;&#91;icons icon="tools"&#93;&#91;icons icon="trending"&#93;&#91;icons icon="truck"&#93;&#91;icons icon="tumblr"&#93;&#91;icons icon="twitter"&#93;&#91;icons icon="username"&#93;&#91;icons icon="users"&#93;&#91;icons icon="video"&#93;&#91;icons icon="viewed"&#93;&#91;icons icon="vimeo"&#93;&#91;icons icon="water"&#93;&#91;icons icon="wifi"&#93;&#91;icons icon="wikipedia"&#93;&#91;icons icon="window"&#93;&#91;icons icon="windows"&#93;&#91;icons icon="wordpress"&#93;&#91;icons icon="wrench"&#93;&#91;icons icon="x"&#93;&#91;icons icon="yahoo"&#93;&#91;icons icon="youtube"&#93;&#91;icons icon="zoom-in"&#93;&#91;icons icon="zoom-out"&#93;
+&lt;/div&gt;
+
+&#91;/tab&#93;
+&#91;tab title="Tiny & Green"&#93;
+
+&lt;div style="color:green;font-size:14px;"&gt;
+&#91;icons icon="acrobat"&#93;&#91;icons icon="alert"&#93;&#91;icons icon="appstore"&#93;&#91;icons icon="down"&#93;&#91;icons icon="down-bold"&#93;&#91;icons icon="down-fat"&#93;&#91;icons icon="down-open"&#93;&#91;icons icon="left"&#93;&#91;icons icon="left-fat"&#93;&#91;icons icon="left-open"&#93;&#91;icons icon="right"&#93;&#91;icons icon="right-fat"&#93;&#91;icons icon="right-open"&#93;&#91;icons icon="up"&#93;&#91;icons icon="up-bold"&#93;&#91;icons icon="up-fat"&#93;&#91;icons icon="up-open"&#93;&#91;icons icon="attach"&#93;&#91;icons icon="attention"&#93;&#91;icons icon="awarded"&#93;&#91;icons icon="basket"&#93;&#91;icons icon="battery"&#93;&#91;icons icon="beaker"&#93;&#91;icons icon="book"&#93;&#91;icons icon="bookmark"&#93;&#91;icons icon="brush"&#93;&#91;icons icon="builder"&#93;&#91;icons icon="camera"&#93;&#91;icons icon="category"&#93;&#91;icons icon="check"&#93;&#91;icons icon="chrome"&#93;&#91;icons icon="cloud"&#93;&#91;icons icon="coffee"&#93;&#91;icons icon="commented"&#93;&#91;icons icon="comments"&#93;&#91;icons icon="credit-card"&#93;&#91;icons icon="floppy"&#93;&#91;icons icon="doc"&#93;&#91;icons icon="dollar"&#93;&#91;icons icon="dropbox"&#93;&#91;icons icon="email"&#93;&#91;icons icon="facebook"&#93;&#91;icons icon="fire"&#93;&#91;icons icon="firefox"&#93;&#91;icons icon="first"&#93;&#91;icons icon="flag"&#93;&#91;icons icon="flickr"&#93;&#91;icons icon="folder-open"&#93;&#91;icons icon="food"&#93;&#91;icons icon="footer"&#93;&#91;icons icon="forward"&#93;&#91;icons icon="gauge"&#93;&#91;icons icon="cog"&#93;&#91;icons icon="cog-alt"&#93;&#91;icons icon="globe"&#93;&#91;icons icon="gmail"&#93;&#91;icons icon="googleplus"&#93;&#91;icons icon="grid"&#93;&#91;icons icon="html5"&#93;&#91;icons icon="help-circled"&#93;&#91;icons icon="home"&#93;&#91;icons icon="ie"&#93;&#91;icons icon="info-circled"&#93;&#91;icons icon="instagram"&#93;&#91;icons icon="key"&#93;&#91;icons icon="laptop"&#93;&#91;icons icon="last"&#93;&#91;icons icon="lastfm"&#93;&#91;icons icon="leaf"&#93;&#91;icons icon="left-hand"&#93;&#91;icons icon="cc"&#93;&#91;icons icon="liked"&#93;&#91;icons icon="link"&#93;&#91;icons icon="linkedin"&#93;&#91;icons icon="list"&#93;&#91;icons icon="lock"&#93;&#91;icons icon="lock-open"&#93;&#91;icons icon="login"&#93;&#91;icons icon="logout"&#93;&#91;icons icon="loop"&#93;&#91;icons icon="magnet"&#93;&#91;icons icon="minus"&#93;&#91;icons icon="minus-squared"&#93;&#91;icons icon="mobile"&#93;&#91;icons icon="monitor"&#93;&#91;icons icon="moon"&#93;&#91;icons icon="next"&#93;&#91;icons icon="opera"&#93;&#91;icons icon="pages"&#93;&#91;icons icon="password"&#93;&#91;icons icon="pause"&#93;&#91;icons icon="paypal"&#93;&#91;icons icon="pencil"&#93;&#91;icons icon="picasa"&#93;&#91;icons icon="picture"&#93;&#91;icons icon="chart-pie"&#93;&#91;icons icon="pin"&#93;&#91;icons icon="pinterest"&#93;&#91;icons icon="play"&#93;&#91;icons icon="plus"&#93;&#91;icons icon="plus-squared"&#93;&#91;icons icon="previous"&#93;&#91;icons icon="quote-circled"&#93;&#91;icons icon="rss"&#93;&#91;icons icon="random"&#93;&#91;icons icon="recent"&#93;&#91;icons icon="reddit"&#93;&#91;icons icon="register"&#93;&#91;icons icon="reviewed"&#93;&#91;icons icon="right-hand"&#93;&#91;icons icon="scissors"&#93;&#91;icons icon="search"&#93;&#91;icons icon="settings"&#93;&#91;icons icon="sidebar"&#93;&#91;icons icon="signal"&#93;&#91;icons icon="signoff"&#93;&#91;icons icon="skype"&#93;&#91;icons icon="emo-angry"&#93;&#91;icons icon="emo-beer"&#93;&#91;icons icon="emo-coffee"&#93;&#91;icons icon="emo-cry"&#93;&#91;icons icon="emo-devil"&#93;&#91;icons icon="emo-displeased"&#93;&#91;icons icon="emo-grin"&#93;&#91;icons icon="emo-happy"&#93;&#91;icons icon="emo-laugh"&#93;&#91;icons icon="emo-saint"&#93;&#91;icons icon="emo-shoot"&#93;&#91;icons icon="emo-sleep"&#93;&#91;icons icon="emo-squint"&#93;&#91;icons icon="emo-sunglasses"&#93;&#91;icons icon="emo-surprised"&#93;&#91;icons icon="emo-thumbsup"&#93;&#91;icons icon="emo-tongue"&#93;&#91;icons icon="emo-unhappy"&#93;&#91;icons icon="emo-wink2"&#93;&#91;icons icon="emo-wink"&#93;&#91;icons icon="sort"&#93;&#91;icons icon="spin2"&#93;&#91;icons icon="spotify"&#93;&#91;icons icon="star"&#93;&#91;icons icon="star-full"&#93;&#91;icons icon="star-half"&#93;&#91;icons icon="star-half-empty"&#93;&#91;icons icon="stop"&#93;&#91;icons icon="stumbleupon"&#93;&#91;icons icon="style"&#93;&#91;icons icon="suitcase"&#93;&#91;icons icon="tablet"&#93;&#91;icons icon="tag"&#93;&#91;icons icon="target"&#93;&#91;icons icon="thumbs-down"&#93;&#91;icons icon="thumbs-up"&#93;&#91;icons icon="tools"&#93;&#91;icons icon="trending"&#93;&#91;icons icon="truck"&#93;&#91;icons icon="tumblr"&#93;&#91;icons icon="twitter"&#93;&#91;icons icon="username"&#93;&#91;icons icon="users"&#93;&#91;icons icon="video"&#93;&#91;icons icon="viewed"&#93;&#91;icons icon="vimeo"&#93;&#91;icons icon="water"&#93;&#91;icons icon="wifi"&#93;&#91;icons icon="wikipedia"&#93;&#91;icons icon="window"&#93;&#91;icons icon="windows"&#93;&#91;icons icon="wordpress"&#93;&#91;icons icon="wrench"&#93;&#91;icons icon="x"&#93;&#91;icons icon="yahoo"&#93;&#91;icons icon="youtube"&#93;&#91;icons icon="zoom-in"&#93;&#91;icons icon="zoom-out"&#93;
+&lt;/div&gt;
+
+&#91;/tab&#93;
+&#91;tab title="Crazy Huge"&#93;
+
+&lt;div style="color:#000;font-size:500px;"&gt;
+&#91;icons icon="firefox"&#93;
+&lt;/div&gt;
+
+&#91;/tab&#93;
+&#91;/tabs&#93;
+
+&#91;divider_top&#93;
+
+&lt;h3&gt;Lists & Columns&lt;/h3&gt;
+
+&#91;one_fourth&#93;&#91;lists style="plus"&#93;
+&lt;ul&gt;
+&lt;li&gt;List Item 1&lt;/li&gt;
+&lt;li&gt;List Item 2&lt;/li&gt;
+&lt;li&gt;List Item 3&lt;/li&gt;
+&lt;li&gt;List Item 4&lt;/li&gt;
+&lt;/ul&gt;
+&#91;/lists&#93;&#91;/one_fourth&#93;&#91;one_fourth&#93;&#91;lists style="liked"&#93;
+&lt;ul&gt;
+&lt;li&gt;List Item 1&lt;/li&gt;
+&lt;li&gt;List Item 2&lt;/li&gt;
+&lt;li&gt;List Item 3&lt;/li&gt;
+&lt;li&gt;List Item 4&lt;/li&gt;
+&lt;/ul&gt;
+&#91;/lists&#93;&#91;/one_fourth&#93;&#91;one_fourth&#93;&#91;lists style="star"&#93;
+&lt;ul&gt;
+&lt;li&gt;List Item 1&lt;/li&gt;
+&lt;li&gt;List Item 2&lt;/li&gt;
+&lt;li&gt;List Item 3&lt;/li&gt;
+&lt;li&gt;List Item 4&lt;/li&gt;
+&lt;/ul&gt;
+&#91;/lists&#93;&#91;/one_fourth&#93;&#91;one_fourth_last&#93;&#91;lists style="check"&#93;
+&lt;ul&gt;
+&lt;li&gt;List Item 1&lt;/li&gt;
+&lt;li&gt;List Item 2&lt;/li&gt;
+&lt;li&gt;List Item 3&lt;/li&gt;
+&lt;li&gt;List Item 4&lt;/li&gt;
+&lt;/ul&gt;
+&#91;/lists&#93;&#91;/one_fourth_last&#93;
+
+&#91;one_fourth&#93;&#91;lists style="right-thin"&#93;
+&lt;ul&gt;
+&lt;li&gt;List Item 1&lt;/li&gt;
+&lt;li&gt;List Item 2&lt;/li&gt;
+&lt;li&gt;List Item 3&lt;/li&gt;
+&lt;li&gt;List Item 4&lt;/li&gt;
+&lt;/ul&gt;
+&#91;/lists&#93;&#91;/one_fourth&#93;&#91;one_fourth&#93;&#91;lists style="right-fat"&#93;
+&lt;ul&gt;
+&lt;li&gt;List Item 1&lt;/li&gt;
+&lt;li&gt;List Item 2&lt;/li&gt;
+&lt;li&gt;List Item 3&lt;/li&gt;
+&lt;li&gt;List Item 4&lt;/li&gt;
+&lt;/ul&gt;
+&#91;/lists&#93;&#91;/one_fourth&#93;&#91;one_fourth&#93;&#91;lists style="right-open"&#93;
+&lt;ul&gt;
+&lt;li&gt;List Item 1&lt;/li&gt;
+&lt;li&gt;List Item 2&lt;/li&gt;
+&lt;li&gt;List Item 3&lt;/li&gt;
+&lt;li&gt;List Item 4&lt;/li&gt;
+&lt;/ul&gt;
+&#91;/lists&#93;&#91;/one_fourth&#93;&#91;one_fourth_last&#93;&#91;lists style="x"&#93;
+&lt;ul&gt;
+&lt;li&gt;List Item 1&lt;/li&gt;
+&lt;li&gt;List Item 2&lt;/li&gt;
+&lt;li&gt;List Item 3&lt;/li&gt;
+&lt;li&gt;List Item 4&lt;/li&gt;
+&lt;/ul&gt;
+&#91;/lists&#93;&#91;/one_fourth_last&#93;
+
+&#91;one_fourth&#93;&#91;lists style="tag"&#93;
+&lt;ul&gt;
+&lt;li&gt;List Item 1&lt;/li&gt;
+&lt;li&gt;List Item 2&lt;/li&gt;
+&lt;li&gt;List Item 3&lt;/li&gt;
+&lt;li&gt;List Item 4&lt;/li&gt;
+&lt;/ul&gt;
+&#91;/lists&#93;&#91;/one_fourth&#93;&#91;one_fourth&#93;&#91;lists style="help-circled"&#93;
+&lt;ul&gt;
+&lt;li&gt;List Item 1&lt;/li&gt;
+&lt;li&gt;List Item 2&lt;/li&gt;
+&lt;li&gt;List Item 3&lt;/li&gt;
+&lt;li&gt;List Item 4&lt;/li&gt;
+&lt;/ul&gt;
+&#91;/lists&#93;&#91;/one_fourth&#93;&#91;one_fourth&#93;&#91;lists style="info-circled"&#93;
+&lt;ul&gt;
+&lt;li&gt;List Item 1&lt;/li&gt;
+&lt;li&gt;List Item 2&lt;/li&gt;
+&lt;li&gt;List Item 3&lt;/li&gt;
+&lt;li&gt;List Item 4&lt;/li&gt;
+&lt;/ul&gt;
+&#91;/lists&#93;&#91;/one_fourth&#93;&#91;one_fourth_last&#93;&#91;lists style="attention"&#93;
+&lt;ul&gt;
+&lt;li&gt;List Item 1&lt;/li&gt;
+&lt;li&gt;List Item 2&lt;/li&gt;
+&lt;li&gt;List Item 3&lt;/li&gt;
+&lt;li&gt;List Item 4&lt;/li&gt;
+&lt;/ul&gt;
+&#91;/lists&#93;&#91;/one_fourth_last&#93;
+
+&#91;one_fourth&#93;&#91;lists style="minus"&#93;
+&lt;ul&gt;
+&lt;li&gt;List Item 1&lt;/li&gt;
+&lt;li&gt;List Item 2&lt;/li&gt;
+&lt;li&gt;List Item 3&lt;/li&gt;
+&lt;li&gt;List Item 4&lt;/li&gt;
+&lt;/ul&gt;
+&#91;/lists&#93;&#91;/one_fourth&#93;&#91;one_fourth&#93;&#91;lists style="pencil"&#93;
+&lt;ul&gt;
+&lt;li&gt;List Item 1&lt;/li&gt;
+&lt;li&gt;List Item 2&lt;/li&gt;
+&lt;li&gt;List Item 3&lt;/li&gt;
+&lt;li&gt;List Item 4&lt;/li&gt;
+&lt;/ul&gt;
+&#91;/lists&#93;&#91;/one_fourth&#93;&#91;one_fourth&#93;&#91;lists style="thumbs-up"&#93;
+&lt;ul&gt;
+&lt;li&gt;List Item 1&lt;/li&gt;
+&lt;li&gt;List Item 2&lt;/li&gt;
+&lt;li&gt;List Item 3&lt;/li&gt;
+&lt;li&gt;List Item 4&lt;/li&gt;
+&lt;/ul&gt;
+&#91;/lists&#93;&#91;/one_fourth&#93;
+
+&#91;divider_top&#93;
+
+&lt;h3&gt;Tables&lt;/h3&gt;
+
+&lt;strong&gt;Default table style:&lt;/strong&gt;
+
+&#91;table&#93;
+&lt;table&gt;
+&lt;tr&gt;
+&lt;td&gt;Table Cell&lt;/td&gt;
+&lt;td&gt;Table Cell&lt;/td&gt;
+&lt;td&gt;Table Cell&lt;/td&gt;
+&lt;td&gt;Table Cell&lt;/td&gt;
+&lt;td&gt;Table Cell&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Table Cell&lt;/td&gt;
+&lt;td&gt;Table Cell&lt;/td&gt;
+&lt;td&gt;Table Cell&lt;/td&gt;
+&lt;td&gt;Table Cell&lt;/td&gt;
+&lt;td&gt;Table Cell&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Table Cell&lt;/td&gt;
+&lt;td&gt;Table Cell&lt;/td&gt;
+&lt;td&gt;Table Cell&lt;/td&gt;
+&lt;td&gt;Table Cell&lt;/td&gt;
+&lt;td&gt;Table Cell&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Table Cell&lt;/td&gt;
+&lt;td&gt;Table Cell&lt;/td&gt;
+&lt;td&gt;Table Cell&lt;/td&gt;
+&lt;td&gt;Table Cell&lt;/td&gt;
+&lt;td&gt;Table Cell&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&#91;/table&#93;
+
+&lt;strong&gt;Striped table style:&lt;/strong&gt;
+
+&#91;table style="table-striped"&#93;
+&lt;table&gt;
+&lt;tr&gt;
+&lt;td&gt;Table Cell&lt;/td&gt;
+&lt;td&gt;Table Cell&lt;/td&gt;
+&lt;td&gt;Table Cell&lt;/td&gt;
+&lt;td&gt;Table Cell&lt;/td&gt;
+&lt;td&gt;Table Cell&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Table Cell&lt;/td&gt;
+&lt;td&gt;Table Cell&lt;/td&gt;
+&lt;td&gt;Table Cell&lt;/td&gt;
+&lt;td&gt;Table Cell&lt;/td&gt;
+&lt;td&gt;Table Cell&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Table Cell&lt;/td&gt;
+&lt;td&gt;Table Cell&lt;/td&gt;
+&lt;td&gt;Table Cell&lt;/td&gt;
+&lt;td&gt;Table Cell&lt;/td&gt;
+&lt;td&gt;Table Cell&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Table Cell&lt;/td&gt;
+&lt;td&gt;Table Cell&lt;/td&gt;
+&lt;td&gt;Table Cell&lt;/td&gt;
+&lt;td&gt;Table Cell&lt;/td&gt;
+&lt;td&gt;Table Cell&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&#91;/table&#93;
+
+&lt;strong&gt;Bordered table style:&lt;/strong&gt;
+
+&#91;table style="table-bordered"&#93;
+&lt;table&gt;
+&lt;tr&gt;
+&lt;td&gt;Table Cell&lt;/td&gt;
+&lt;td&gt;Table Cell&lt;/td&gt;
+&lt;td&gt;Table Cell&lt;/td&gt;
+&lt;td&gt;Table Cell&lt;/td&gt;
+&lt;td&gt;Table Cell&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Table Cell&lt;/td&gt;
+&lt;td&gt;Table Cell&lt;/td&gt;
+&lt;td&gt;Table Cell&lt;/td&gt;
+&lt;td&gt;Table Cell&lt;/td&gt;
+&lt;td&gt;Table Cell&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Table Cell&lt;/td&gt;
+&lt;td&gt;Table Cell&lt;/td&gt;
+&lt;td&gt;Table Cell&lt;/td&gt;
+&lt;td&gt;Table Cell&lt;/td&gt;
+&lt;td&gt;Table Cell&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Table Cell&lt;/td&gt;
+&lt;td&gt;Table Cell&lt;/td&gt;
+&lt;td&gt;Table Cell&lt;/td&gt;
+&lt;td&gt;Table Cell&lt;/td&gt;
+&lt;td&gt;Table Cell&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&#91;/table&#93;
+
+&lt;strong&gt;This table has hover effect on rows:&lt;/strong&gt;
+
+&#91;table style="table-hover"&#93;
+&lt;table&gt;
+&lt;tr&gt;
+&lt;td&gt;Table Cell&lt;/td&gt;
+&lt;td&gt;Table Cell&lt;/td&gt;
+&lt;td&gt;Table Cell&lt;/td&gt;
+&lt;td&gt;Table Cell&lt;/td&gt;
+&lt;td&gt;Table Cell&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Table Cell&lt;/td&gt;
+&lt;td&gt;Table Cell&lt;/td&gt;
+&lt;td&gt;Table Cell&lt;/td&gt;
+&lt;td&gt;Table Cell&lt;/td&gt;
+&lt;td&gt;Table Cell&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Table Cell&lt;/td&gt;
+&lt;td&gt;Table Cell&lt;/td&gt;
+&lt;td&gt;Table Cell&lt;/td&gt;
+&lt;td&gt;Table Cell&lt;/td&gt;
+&lt;td&gt;Table Cell&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Table Cell&lt;/td&gt;
+&lt;td&gt;Table Cell&lt;/td&gt;
+&lt;td&gt;Table Cell&lt;/td&gt;
+&lt;td&gt;Table Cell&lt;/td&gt;
+&lt;td&gt;Table Cell&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&#91;/table&#93;
+
+&lt;strong&gt;Condensed table style:&lt;/strong&gt;
+
+&#91;table style="table-condensed"&#93;
+&lt;table&gt;
+&lt;tr&gt;
+&lt;td&gt;Table Cell&lt;/td&gt;
+&lt;td&gt;Table Cell&lt;/td&gt;
+&lt;td&gt;Table Cell&lt;/td&gt;
+&lt;td&gt;Table Cell&lt;/td&gt;
+&lt;td&gt;Table Cell&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Table Cell&lt;/td&gt;
+&lt;td&gt;Table Cell&lt;/td&gt;
+&lt;td&gt;Table Cell&lt;/td&gt;
+&lt;td&gt;Table Cell&lt;/td&gt;
+&lt;td&gt;Table Cell&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Table Cell&lt;/td&gt;
+&lt;td&gt;Table Cell&lt;/td&gt;
+&lt;td&gt;Table Cell&lt;/td&gt;
+&lt;td&gt;Table Cell&lt;/td&gt;
+&lt;td&gt;Table Cell&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Table Cell&lt;/td&gt;
+&lt;td&gt;Table Cell&lt;/td&gt;
+&lt;td&gt;Table Cell&lt;/td&gt;
+&lt;td&gt;Table Cell&lt;/td&gt;
+&lt;td&gt;Table Cell&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&#91;/table&#93;
+
+&#91;divider_top&#93;
+
+&lt;h3&gt;Jumbotron&lt;/h3&gt;
+
+&#91;jumbotron heading="Jumbotron Header" tagline="Here's an optional tagline"&#93;
+
+This is the content for the jumbotron. Anything can go here including HTML and shortcodes. Create the shortcodes first and then copy + paste them into the content of the jumbotron for easiest use. Here's a button added for fun:
+
+&#91;button type="link" link="http://www.industrialthemes.com" size="btn-lg" variation="btn-info"&#93;Cool Dude&#91;/button&#93;
+
+&#91;/jumbotron&#93;
+
+&#91;divider_top&#93;
+
+&lt;h3&gt;Carousel&lt;/h3&gt;
+
+&#91;carousel arrows="display" buttons="display" caption="display" interval="3"&#93;
+&#91;panel&#93;&lt;img src="http://www.industrialthemes.com/explicit/wp-content/uploads/2014/01/plane-1024x708.jpg" alt="plane" width="1024" height="708" class="alignnone size-large wp-image-243" /&gt;&#91;/panel&#93;
+&#91;panel title="Optional Slide Title" description="This slide has a description"&#93;&lt;img src="http://www.industrialthemes.com/explicit/wp-content/uploads/2014/01/city5-1024x708.jpg" alt="city5" width="1024" height="708" class="alignnone size-large wp-image-237" /&gt;&#91;/panel&#93;
+&#91;panel&#93;&lt;a href="http://www.industrialthemes.com/explicit/wp-content/uploads/2014/01/city6.jpg"&gt;&lt;img src="http://www.industrialthemes.com/explicit/wp-content/uploads/2014/01/city6-1024x708.jpg" alt="city6" width="1024" height="708" class="alignnone size-large wp-image-238" /&gt;&lt;/a&gt;&#91;/panel&#93;
+&#91;/carousel&#93;
+
+&#91;divider_top&#93;
+
+&lt;h3&gt;Toggles&lt;/h3&gt;
+
+&#91;toggles behavior="toggle"&#93;
+&#91;toggle title="Toggle Panel 1 Title"&#93;Praesent vitae orci tortor. Nunc commodo turpis nisl, et pellentesque turpis fermentum in. Sed a tellus in neque convallis eleifend. Maecenas mattis nibh id imperdiet sagittis. Cras vehicula sollicitudin velit sed blandit. Nunc fermentum metus hendrerit quam ultricies, eget cursus elit semper. Duis tincidunt nunc et facilisis faucibus. Quisque tincidunt luctus gravida. Proin aliquam et mauris id rutrum.
+
+Donec vitae orci vitae mi varius molestie. Aliquam erat volutpat. Donec faucibus urna nec accumsan tempus. Vivamus venenatis risus sed orci dictum fringilla. Vestibulum dignissim adipiscing nunc, ac eleifend mi posuere ut. Suspendisse vitae porta lectus. Nullam ut eros ac velit semper sodales sed nec sem. Ut et tincidunt felis. Curabitur aliquet iaculis erat, sit amet facilisis risus gravida eu. Curabitur consectetur elit non felis gravida congue. Curabitur quis leo est. Nam varius sed ligula in sollicitudin. Donec nisi ante, venenatis eget facilisis eu, rhoncus quis ligula. Curabitur varius, massa a fringilla condimentum, ipsum diam varius ligula, ac posuere metus neque a enim.&#91;/toggle&#93;
+&#91;toggle title="Toggle Panel 2 Title"&#93;Praesent vitae orci tortor. Nunc commodo turpis nisl, et pellentesque turpis fermentum in. Sed a tellus in neque convallis eleifend. Maecenas mattis nibh id imperdiet sagittis. Cras vehicula sollicitudin velit sed blandit. Nunc fermentum metus hendrerit quam ultricies, eget cursus elit semper. Duis tincidunt nunc et facilisis faucibus. Quisque tincidunt luctus gravida. Proin aliquam et mauris id rutrum.
+
+Donec vitae orci vitae mi varius molestie. Aliquam erat volutpat. Donec faucibus urna nec accumsan tempus. Vivamus venenatis risus sed orci dictum fringilla. Vestibulum dignissim adipiscing nunc, ac eleifend mi posuere ut. Suspendisse vitae porta lectus. Nullam ut eros ac velit semper sodales sed nec sem. Ut et tincidunt felis. Curabitur aliquet iaculis erat, sit amet facilisis risus gravida eu. Curabitur consectetur elit non felis gravida congue. Curabitur quis leo est. Nam varius sed ligula in sollicitudin. Donec nisi ante, venenatis eget facilisis eu, rhoncus quis ligula. Curabitur varius, massa a fringilla condimentum, ipsum diam varius ligula, ac posuere metus neque a enim.&#91;/toggle&#93;
+&#91;toggle title="Last Toggle Panel"&#93;Praesent vitae orci tortor. Nunc commodo turpis nisl, et pellentesque turpis fermentum in. Sed a tellus in neque convallis eleifend. Maecenas mattis nibh id imperdiet sagittis. Cras vehicula sollicitudin velit sed blandit. Nunc fermentum metus hendrerit quam ultricies, eget cursus elit semper. Duis tincidunt nunc et facilisis faucibus. Quisque tincidunt luctus gravida. Proin aliquam et mauris id rutrum.
+
+Donec vitae orci vitae mi varius molestie. Aliquam erat volutpat. Donec faucibus urna nec accumsan tempus. Vivamus venenatis risus sed orci dictum fringilla. Vestibulum dignissim adipiscing nunc, ac eleifend mi posuere ut. Suspendisse vitae porta lectus. Nullam ut eros ac velit semper sodales sed nec sem. Ut et tincidunt felis. Curabitur aliquet iaculis erat, sit amet facilisis risus gravida eu. Curabitur consectetur elit non felis gravida congue. Curabitur quis leo est. Nam varius sed ligula in sollicitudin. Donec nisi ante, venenatis eget facilisis eu, rhoncus quis ligula. Curabitur varius, massa a fringilla condimentum, ipsum diam varius ligula, ac posuere metus neque a enim.&#91;/toggle&#93;
+&#91;/toggles&#93;
+
+&#91;divider_top&#93;
+
+&lt;h3&gt;Accordion&lt;/h3&gt;
+
+&#91;toggles behavior="accordion"&#93;
+&#91;toggle title="Accordion Panel 1 Title" expanded="in"&#93;Praesent vitae orci tortor. Nunc commodo turpis nisl, et pellentesque turpis fermentum in. Sed a tellus in neque convallis eleifend. Maecenas mattis nibh id imperdiet sagittis. Cras vehicula sollicitudin velit sed blandit. Nunc fermentum metus hendrerit quam ultricies, eget cursus elit semper. Duis tincidunt nunc et facilisis faucibus. Quisque tincidunt luctus gravida. Proin aliquam et mauris id rutrum.
+
+Donec vitae orci vitae mi varius molestie. Aliquam erat volutpat. Donec faucibus urna nec accumsan tempus. Vivamus venenatis risus sed orci dictum fringilla. Vestibulum dignissim adipiscing nunc, ac eleifend mi posuere ut. Suspendisse vitae porta lectus. Nullam ut eros ac velit semper sodales sed nec sem. Ut et tincidunt felis. Curabitur aliquet iaculis erat, sit amet facilisis risus gravida eu. Curabitur consectetur elit non felis gravida congue. Curabitur quis leo est. Nam varius sed ligula in sollicitudin. Donec nisi ante, venenatis eget facilisis eu, rhoncus quis ligula. Curabitur varius, massa a fringilla condimentum, ipsum diam varius ligula, ac posuere metus neque a enim.&#91;/toggle&#93;
+&#91;toggle title="Accordion Panel 2 Title"&#93;Praesent vitae orci tortor. Nunc commodo turpis nisl, et pellentesque turpis fermentum in. Sed a tellus in neque convallis eleifend. Maecenas mattis nibh id imperdiet sagittis. Cras vehicula sollicitudin velit sed blandit. Nunc fermentum metus hendrerit quam ultricies, eget cursus elit semper. Duis tincidunt nunc et facilisis faucibus. Quisque tincidunt luctus gravida. Proin aliquam et mauris id rutrum.
+
+Donec vitae orci vitae mi varius molestie. Aliquam erat volutpat. Donec faucibus urna nec accumsan tempus. Vivamus venenatis risus sed orci dictum fringilla. Vestibulum dignissim adipiscing nunc, ac eleifend mi posuere ut. Suspendisse vitae porta lectus. Nullam ut eros ac velit semper sodales sed nec sem. Ut et tincidunt felis. Curabitur aliquet iaculis erat, sit amet facilisis risus gravida eu. Curabitur consectetur elit non felis gravida congue. Curabitur quis leo est. Nam varius sed ligula in sollicitudin. Donec nisi ante, venenatis eget facilisis eu, rhoncus quis ligula. Curabitur varius, massa a fringilla condimentum, ipsum diam varius ligula, ac posuere metus neque a enim.&#91;/toggle&#93;
+&#91;toggle title="Last Accordion Panel"&#93;Praesent vitae orci tortor. Nunc commodo turpis nisl, et pellentesque turpis fermentum in. Sed a tellus in neque convallis eleifend. Maecenas mattis nibh id imperdiet sagittis. Cras vehicula sollicitudin velit sed blandit. Nunc fermentum metus hendrerit quam ultricies, eget cursus elit semper. Duis tincidunt nunc et facilisis faucibus. Quisque tincidunt luctus gravida. Proin aliquam et mauris id rutrum.
+
+Donec vitae orci vitae mi varius molestie. Aliquam erat volutpat. Donec faucibus urna nec accumsan tempus. Vivamus venenatis risus sed orci dictum fringilla. Vestibulum dignissim adipiscing nunc, ac eleifend mi posuere ut. Suspendisse vitae porta lectus. Nullam ut eros ac velit semper sodales sed nec sem. Ut et tincidunt felis. Curabitur aliquet iaculis erat, sit amet facilisis risus gravida eu. Curabitur consectetur elit non felis gravida congue. Curabitur quis leo est. Nam varius sed ligula in sollicitudin. Donec nisi ante, venenatis eget facilisis eu, rhoncus quis ligula. Curabitur varius, massa a fringilla condimentum, ipsum diam varius ligula, ac posuere metus neque a enim.&#91;/toggle&#93;
+&#91;/toggles&#93;
+
+&#91;divider_top&#93;
+
+&lt;h3&gt;Blockquote&lt;/h3&gt;
+
+&#91;blockquote cite="Person's Name"&#93;Praesent vitae orci tortor. Nunc commodo turpis nisl, et pellentesque turpis fermentum in. Sed a tellus in neque convallis eleifend. Maecenas mattis nibh id imperdiet sagittis. Cras vehicula sollicitudin velit sed blandit. Nunc fermentum metus hendrerit quam ultricies, eget cursus elit semper. Duis tincidunt nunc et facilisis faucibus. Quisque tincidunt luctus gravida. Proin aliquam et mauris id rutrum.&#91;/blockquote&#93;
+
+&#91;blockquote right="pull-right" cite="Person's Name"&#93;Praesent vitae orci tortor. Nunc commodo turpis nisl, et pellentesque turpis fermentum in. Sed a tellus in neque convallis eleifend. Maecenas mattis nibh id imperdiet sagittis. Cras vehicula sollicitudin velit sed blandit. Nunc fermentum metus hendrerit quam ultricies, eget cursus elit semper. Duis tincidunt nunc et facilisis faucibus. Quisque tincidunt luctus gravida. Proin aliquam et mauris id rutrum.&#91;/blockquote&#93;
+
+&#91;divider_top&#93;
+
+&lt;h3&gt;Signoffs&lt;/h3&gt;
+
+&#91;signoff icon="lock"&#93;You can create one-off signoffs instead of using the theme options defined content, and you can choose any icon you want to accompany the signoff to the left. The possibilities are endless!&#91;/signoff&#93;
+
+&#91;signoff icon="flag"&#93;You can create one-off signoffs instead of using the theme options defined content, and you can choose any icon you want to accompany the signoff to the left. The possibilities are endless!&#91;/signoff&#93;
+
+&#91;signoff icon="star-full"&#93;You can create one-off signoffs instead of using the theme options defined content, and you can choose any icon you want to accompany the signoff to the left. The possibilities are endless!&#91;/signoff&#93;
+
+&#91;divider_top&#93;
+
+&lt;h3&gt;Miscellaneous&lt;/h3&gt;
+
+&lt;strong&gt;Styled Ampersand:&lt;/strong&gt;
+
+&#91;styled_amp size="200"&#93;&#91;styled_amp size="150"&#93;&#91;styled_amp size="100"&#93;&#91;styled_amp size="50"&#93;&#91;styled_amp size="30"&#93;&#91;styled_amp size="20"&#93;&#91;styled_amp size="10"&#93;
+
+&lt;strong&gt;Two paragraphs separated by a divider:&lt;/strong&gt;
+
+Praesent vitae orci tortor. Nunc commodo turpis nisl, et pellentesque turpis fermentum in. Sed a tellus in neque convallis eleifend. Maecenas mattis nibh id imperdiet sagittis. Cras vehicula sollicitudin velit sed blandit. Nunc fermentum metus hendrerit quam ultricies, eget cursus elit semper. Duis tincidunt nunc et facilisis faucibus. Quisque tincidunt luctus gravida. Proin aliquam et mauris id rutrum.
+
+&#91;divider&#93;
+
+Donec vitae orci vitae mi varius molestie. Aliquam erat volutpat. Donec faucibus urna nec accumsan tempus. Vivamus venenatis risus sed orci dictum fringilla. Vestibulum dignissim adipiscing nunc, ac eleifend mi posuere ut. Suspendisse vitae porta lectus. Nullam ut eros ac velit semper sodales sed nec sem. Ut et tincidunt felis. Curabitur aliquet iaculis erat, sit amet facilisis risus gravida eu. Curabitur consectetur elit non felis gravida congue. Curabitur quis leo est. Nam varius sed ligula in sollicitudin. Donec nisi ante, venenatis eget facilisis eu, rhoncus quis ligula. Curabitur varius, massa a fringilla condimentum, ipsum diam varius ligula, ac posuere metus neque a enim.
+
+&lt;strong&gt;Headers&lt;/strong&gt;
+
+&lt;h1&gt;H1 Headline&lt;/h1&gt;
+
+&lt;h2&gt;H2 Headline&lt;/h2&gt;
+
+&lt;h3&gt;H3 Headline&lt;/h3&gt;
+
+&lt;h4&gt;H4 Headline&lt;/h4&gt;
+
+&lt;h5&gt;H5 Headline&lt;/h5&gt;
+
+&lt;h6&gt;H6 Headline&lt;/h6&gt;
+
+&lt;pre&gt;Praesent vitae orci tortor. Nunc commodo turpis nisl, et pellentesque turpis fermentum in. Sed a tellus in neque convallis eleifend. Maecenas mattis nibh id imperdiet sagittis. Cras vehicula sollicitudin velit sed blandit. Nunc fermentum metus hendrerit quam ultricies, eget cursus elit semper. Duis tincidunt nunc et facilisis faucibus. Quisque tincidunt luctus gravida. Proin aliquam et mauris id rutrum.&lt;/pre&gt;
+
+Donec vitae orci vitae mi varius molestie. Aliquam erat volutpat. Donec faucibus urna nec accumsan tempus. Vivamus venenatis risus sed orci dictum fringilla. &lt;code&gt;Vestibulum dignissim adipiscing nunc&lt;/code&gt;, ac eleifend mi posuere ut. Suspendisse vitae porta lectus. Nullam ut eros ac velit semper sodales sed nec sem. Ut et tincidunt felis. Curabitur aliquet iaculis erat, sit amet facilisis risus gravida eu. Curabitur consectetur elit non felis gravida congue. Curabitur quis leo est. Nam varius sed ligula in sollicitudin. Donec nisi ante, venenatis eget facilisis eu, rhoncus quis ligula. Curabitur varius, massa a fringilla condimentum, ipsum diam varius ligula, ac posuere metus neque a enim.
+
+&#91;caption id="attachment_235" align="alignleft" width="300"&#93;&lt;a href="http://www.industrialthemes.com/explicit/wp-content/uploads/2014/01/city3.jpg"&gt;&lt;img src="http://www.industrialthemes.com/explicit/wp-content/uploads/2014/01/city3-300x207.jpg" alt="Here&#039;s a caption" width="300" height="207" class="size-medium wp-image-235" /&gt;&lt;/a&gt; Here's a caption&#91;/caption&#93;
+
+Donec rutrum, tellus vulputate aliquet scelerisque, elit nunc facilisis tellus, nec commodo purus tellus bibendum arcu. Praesent auctor condimentum congue. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Maecenas a sem et tellus aliquam imperdiet. Mauris eget diam justo. Sed sem sapien, malesuada in egestas sed, lacinia at ipsum. Sed egestas, mi eu imperdiet blandit, felis erat convallis turpis, a tincidunt nisl justo ac nunc. Nullam quis convallis ipsum. Etiam fringilla lectus erat, eu lobortis mauris volutpat sit amet.
+
+Donec rutrum, tellus vulputate aliquet scelerisque, elit nunc facilisis tellus, nec commodo purus tellus bibendum arcu. Praesent auctor condimentum congue. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Maecenas a sem et tellus aliquam imperdiet. Mauris eget diam justo. Sed sem sapien, malesuada in egestas sed, lacinia at ipsum. Sed egestas, mi eu imperdiet blandit, felis erat convallis turpis, a tincidunt nisl justo ac nunc. Nullam quis convallis ipsum. Etiam fringilla lectus erat, eu lobortis mauris volutpat sit amet.
+
+Donec rutrum, tellus vulputate aliquet scelerisque, elit nunc facilisis tellus, nec commodo purus tellus bibendum arcu. Praesent auctor condimentum congue. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Maecenas a sem et tellus aliquam imperdiet. Mauris eget diam justo. Sed sem sapien, malesuada in egestas sed, lacinia at ipsum. Sed egestas, mi eu imperdiet blandit, felis erat convallis turpis, a tincidunt nisl justo ac nunc. Nullam quis convallis ipsum. Etiam fringilla lectus erat, eu lobortis mauris volutpat sit amet.
+
+&#91;caption id="attachment_234" align="alignright" width="300"&#93;&lt;a href="http://www.industrialthemes.com/explicit/wp-content/uploads/2014/01/city2.jpg"&gt;&lt;img src="http://www.industrialthemes.com/explicit/wp-content/uploads/2014/01/city2-300x207.jpg" alt="I love captions, you?" width="300" height="207" class="size-medium wp-image-234" /&gt;&lt;/a&gt; I love captions, you?&#91;/caption&#93;
+
+Donec rutrum, tellus vulputate aliquet scelerisque, elit nunc facilisis tellus, nec commodo purus tellus bibendum arcu. Praesent auctor condimentum congue. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Maecenas a sem et tellus aliquam imperdiet. Mauris eget diam justo. Sed sem sapien, malesuada in egestas sed, lacinia at ipsum. Sed egestas, mi eu imperdiet blandit, felis erat convallis turpis, a tincidunt nisl justo ac nunc. Nullam quis convallis ipsum. Etiam fringilla lectus erat, eu lobortis mauris volutpat sit amet.
+
+Praesent vitae orci tortor. Nunc commodo turpis nisl, et pellentesque turpis fermentum in. Sed a tellus in neque convallis eleifend. Maecenas mattis nibh id imperdiet sagittis. Cras vehicula sollicitudin velit sed blandit. Nunc fermentum metus hendrerit quam ultricies, eget cursus elit semper. Duis tincidunt nunc et facilisis faucibus. Quisque tincidunt luctus gravida. Proin aliquam et mauris id rutrum.
+
+&lt;strong&gt;Lightbox-enabled Image Gallery:&lt;/strong&gt;
+
+&#91;gallery link="file" ids="160,155,128,121,120,114"&#93;
+
+&#91;divider_top&#93;
+        
+        </pre>
+        
+        </div>
+    
+    </div>
+    
+    <h3 id="sections">Category Sections</h3>
+    
+    <div class="clearfix">
+    
+    	<p>This theme allows you to customize your site's categories in many ways in order to give your site a "sectional" approach. In order to turn a category into a section, you need to create in your list of WordPress categories in your Posts >> Categories screen. Once the category exists you will be able to manage it in the theme options. As in our other examples we'll use the live demo for example purposes. So in this case, you need to make sure you have the following four categories created in your list of WordPress categories:</p>
+        
+        <ol>
+        	<li>Design</li>
+            <li>Entertainment</li>
+            <li>Fashion</li>
+            <li>Travel</li>
+        </ol>
+        
+        <p>Now, go to Theme Options >> Categories and you will see the Manage A Category button. Click that button and then choose Design from the list of categories, and then enter the following content and options for that category:</p>
+    
+    	<div class="center-block">    
+        	<img src="http://www.brianmcculloh.com/files/documentation/implicit-categories.png" class="img-thumbnail img-responsive">            
+        </div>
+        
+        <p>Click Save to save the options. The Design category is now setup just like the live demo. You can do the same with the other three categories mentioned above and choose whatever colors, logos, and icons you want. If you want to get the ones from the live demo, you should import the full live demo content according to the steps located at the top of this documentation.</p>
+        
+        <p>When you view posts within one of these categories, or the archive listing page for these categories (or any subcategories therein) you will notice the logo, icon, colors, etc. will match the settings you chose above. If you add these categories to your mega menu you will notice they will automatically display using the selected color/icon and will populate with posts within that category and even subcategories of that category within the mega menu panels. This is further explained in the next section.</p>
+    
+    </div>
+    
+    <h3 id="menus">Custom Menus</h3>
+    
+    <div class="clearfix">
+    
+    	<p>There are three custom menu locations within the theme, including:</p>
+        
+        <ol>
+        	<li>The Section menu</li>
+            <li>The Secondary menu</li>
+            <Li>The Utility menu</Li>
+        </ol>
+        
+        <p>The section menu is the only one of the three that can be mega menu enabled. Both the section and secondary menus appear in the side sticky nav, and you can control which one displays on top of the other using the theme options. The utility menu is used by the page builder of the same name and can be put anywhere in your site. Go to the Theme Options >> Sticky Nav screen to see all options pertaining to menu placement and functionality.</p>
+        
+        <div class="center-block">    
+        	<img src="http://www.brianmcculloh.com/files/documentation/implicit-sticky.png" class="img-thumbnail img-responsive">            
+        </div>
+        
+        <p>We'll set up the menu structure just like the live demo. You want to make sure you have the Sections menu set to "mega menu", and then make sure the <strong>Secondary Menu Position</strong> is set to <em>Below the section menu</em>. Once you have the settings how you want them in the theme options, the next thing to do is go and actually create and assign your menus in the Appearance >> Menus screen.</p>
+        
+        <p>Create two menus, one called <strong>Section Menu</strong> and one called <strong>Secondary Menu</strong>. Then choose the section menu from the drop down and click Select. Add the four categories that we setup in the manage categories section in the theme options from our previous step, as shown here:</p>
+        
+        <div class="center-block">    
+        	<img src="http://www.brianmcculloh.com/files/documentation/implicit-section-menu.png" class="img-thumbnail img-responsive">            
+        </div>
+        
+        <p>Next, choose the secondary menu from the drop down and click Select. Add anything you want to this menu, it is not mega enabled and will display any pages, categories, tags, or custom links you want to add. Of course you are not required to use this menu if you want to use only the section menu above. If you choose not to use it you should disable it in the theme options first.</p>
+        
+        <p class="bg-success text-success"><span class="label label-success">Helpful Tip</span> If you want menu items to have their own sub menu items, drag the menu item slightly to the right to indent it under its parent item, and it will be rendered as a drop down sub menu item on your site. You can do this multiple levels deep as needed.</p>
+        
+        <p>The final, most important step is to assign the menu locations. Click the Manage Locations tab at the top and assign the three menu locations as shown in the screenshot:</p>
+        
+        <div class="center-block">    
+        	<img src="http://www.brianmcculloh.com/files/documentation/implicit-menu-locations.png" class="img-thumbnail img-responsive">            
+        </div>
+        
+        <p>You can of course create a third menu specifically for the Utility Menu, but we chose to re-use the secondary menu in both spots for the sake of simplicity. Whatever you have selected for the utility menu is what will display wherever you choose "utility menu" in any page builder setup.</p>
+    
+    </div>
+    
+    <h3 id="awards">Awards and Badges</h3>
+    
+    <div class="clearfix">
+    
+    	<p>This theme comes with a built-in awards and badges system that does not require any third-party plugins. The icons and names of the awards and badges are custom assigned by you and there are no pre-packaged awards or badges (unless you import the demo content). We'll show you how to add a few awards and badges and assign them to your posts.</p>
+        
+        <p>There are two steps to getting awards and badges to show up on your site:</p>
+        
+        <ol>
+        	<li><strong>Creating</strong> your awards and badges within the theme options</li>
+            <li><strong>Assigning</strong> them to your various posts</li>
+        </ol>
+        
+        <p class="bg-info text-info"><span class="label label-info">Info</span> Unlike some of our previous themes, awards and badges will be fully functional on all of your posts, not just posts marked as reviews.</p>
+        
+        <p>First let's create a few awards and badges. Go to Theme Options >> Awards and Badges and click the Add New Award button four times (two of these will be awards and two will be badges). Then fill in the options as shown in these screenshots:</p>
+        
+        <div class="center-block">    
+        	<img src="http://www.brianmcculloh.com/files/documentation/implicit-awards.png" class="img-thumbnail img-responsive">                        
+        </div>
+        <div class="center-block">    
+        	<img src="http://www.brianmcculloh.com/files/documentation/implicit-badges.png" class="img-thumbnail img-responsive">            
+        </div>
+        
+        <p>Next open up a new post and notice the list of possible awards and badges to assign on the bottom right of the screen as shown in the screenshot below. Just select which award(s) and badge(s) you want to assign to this post, and they will appear on the front-end of your site - it's as easy as that!</p>
+        
+        <div class="center-block">    
+        	<img src="http://www.brianmcculloh.com/files/documentation/implicit-awardsbadges.png" class="img-thumbnail img-responsive">            
+        </div>
+        
+        <p>In the live demo there are several more awards and badges, but they are all added and managed the same way, so we have only added two of each for the sake of brevity here. In this screenshot you will see all of the awards and badges from the live demo, but for your example there will only be two options in each panel. If you want them all feel free to import the demo content as is instructed towards the top of this documentation.</p>
+    
+    </div>
+    
+    <h3 id="reactions">Reactions</h3>
+    
+    <div class="clearfix">
+    
+    	<p>This theme comes with a built-in user reactions component that does not require any third-party plugins. The reactions are a way for users to voice their immediate reaction to the article they have just read, and to display the results at the end of your articles for all users to see. It's fully AJAX-enabled and updates immediately for ease of use and UX.</p>
+        
+        <p>There are a set of 20 pre-defined emoticons to use for the icons for each reaction that span the spectrum of emotions (for the most part), but you can easily upload your own icons to use for the reactions (or just use text with no icon if you want). We tried to name each of the preset icons according to its corresponding emotion, so you should be able to get away with just matching the name to the reaction as is shown in the following screenshot:</p>
+        
+        <div class="center-block">    
+        	<img src="http://www.brianmcculloh.com/files/documentation/implicit-reactions.png" class="img-thumbnail img-responsive">            
+        </div>
+        
+        <p>Once you create all of your reactions, they will automatically become available for users to click on at the end of all of your posts. You can exclude certain reactions from specific posts if they don't apply very easily. To do so edit a post and locate the Excluded Reactions panel at the bottom right of the screen. If you want to exclude a certain reaction from the post, just select it in the list and save the post. That reaction will no longer be available in the list of possible reactions for just that post.</p>
+        
+        <div class="center-block">    
+        	<img src="http://www.brianmcculloh.com/files/documentation/implicit-reactions-exclude.png" class="img-thumbnail img-responsive">            
+        </div>
+        
+        <p class="bg-success text-success"><span class="label label-success">Helpful Tip</span> You can move the location of the reactions on single posts easily using the theme options, as you can do with many other components as well. Just go to Theme Options >> Template Setup >> Single Posts >> Reactions Position</p>
+        
+        <div class="center-block">    
+        	<img src="http://www.brianmcculloh.com/files/documentation/implicit-reactions-position.png" class="img-thumbnail img-responsive">            
+        </div>
+    
+    </div>
+    
+    <h3 id="sidebars">Custom Sidebars</h3>
+    
+    <div class="clearfix">
+    
+    	<p>You can easily create unlimited sidebars to be used individually for specific posts and pages if you want. It entails three steps:</p>
+        
+        <ol>
+        	<li><strong>Create</strong> the sidebar</li>
+            <li><strong>Add widgets</strong> to the sidebar</li>
+            <li><strong>Assign</strong> the sidebar to a post or page</li>
+        </ol>
+        
+        <p>First, to create the sidebar, go to Theme Options >> Custom Sidebars and enter the name of your sidebar and click Add Sidebar. It will then appear in your list of custom sidebars as shown in the following screenshot:</p>
+        
+        <div class="center-block">    
+        	<img src="http://www.brianmcculloh.com/files/documentation/implicit-sidebar.png" class="img-thumbnail img-responsive">            
+        </div>
+        
+        <p>Once you have created the sidebar it will become available to add widgets to in the Appearance >> Widgets screen. Now you can add widgets to the sidebar just like any other existing pre-build sidebar, as shown in the following screenshot:</p>
+        
+        <div class="center-block">    
+        	<img src="http://www.brianmcculloh.com/files/documentation/implicit-widgets.png" class="img-thumbnail img-responsive">            
+        </div>
+        
+        <p>Finally, you can assign this custom sidebar to any and all posts or pages. Open a post and locate the <strong>Layout Options</strong> panel below the post content editor. Within this panel you'll see an option for a Custom Sidebar. All of the custom sidebars you have created in your theme options will appear in this list. Just choose which one you want to use for this post and it will be used instead of the standard post sidebar.</p>
+        
+        <div class="center-block">    
+        	<img src="http://www.brianmcculloh.com/files/documentation/implicit-post-sidebar.png" class="img-thumbnail img-responsive">            
+        </div>
+        
+        <p class="bg-info text-info"><span class="label label-info">Info</span> The custom sidebars are a one-to-many relationship with posts and pages. That is, you can assign any one custom sidebar to as many pages or posts as you wish.</p>
+    
+    </div>
+    
+    <h3 id="signoffs">Custom "Signoffs"</h3>
+    
+    <div class="clearfix">
+    
+    	<p>You can create an unlimited number of custom "signoff" boxes. A signoff is a way of putting standard content at the end of each of your posts, such as information about how to contact the editor, or a disclaimer of some kind. It's really a catch-all for any content that you want at the end of every post. However since you can create as many as you want, you can have different groups of standardized content, showing one signoff on certain posts and a different signoff on other posts. The beauty and benefit of the signoff is that you don't have to re-write the signoff for each post. You do it once in the theme options and then add it (via a shortcode) to any post or page you wish. You can even specify one-off signoffs directly within each post if you so desire.</p>
+        
+        <p>First, create the signoff. We'll use the one from the live demo here. Go to Theme Options >> Signoffs and add a new signoff called Custom Signoff Box with the content as indicated int he screenshot below:</p>
+        
+        <div class="center-block">    
+        	<img src="http://www.brianmcculloh.com/files/documentation/implicit-signoff.png" class="img-thumbnail img-responsive">            
+        </div>
+        
+        <p>You can of course create more than one, but we'll just create one for example purposes. Next, go to any post and locate the Shortcode Generator under the post content editor and choose the <strong>Signoffs</strong> shortcode. Then select the custom signoff you created in the theme options (all signoffs you create will display in the drop down here). Leave the custom content blank and select any icon you want to use to highlight the signoff, and click Send Shortcode to Editor &raquo; as is shown in this screenshot:</p>
+        
+        <div class="center-block">    
+        	<img src="http://www.brianmcculloh.com/files/documentation/implicit-signoff-shortcode.png" class="img-thumbnail img-responsive">            
+        </div>
+        
+        <p class="bg-info text-info"><span class="label label-info">Info</span> To overwrite the pre-defined signoff with custom one-off text for just this instance of the signoff shortcode, enter your content into the <strong>Custom Content</strong> textbox. You can still select an icon to use if you go this route.</p>
+    
+    </div>
+    
+    <h3 id="reviews">Review System</h3>
+    
+    <div class="clearfix">
+    
+    	<p>The theme comes witha robust review system with four different metrics and the ability to add extra details to your posts, including positives, negatives, and a bottom line. You can review-enable any standard post without worrying about any complicated conversion processes or custom post types. Here's how we did it in the live demo.</p>
+        
+        <div class="center-block">    
+        	<img src="http://www.brianmcculloh.com/files/documentation/implicit-reviews.png" class="img-thumbnail img-responsive">            
+        </div>
+        
+        <p>First, access the review settings in the Theme Options >> Reviews panel. Then add your details and rating criteria here. Choose Numbers as the metric to use. Add all of the possible rating criteria you will ever want to use on any of your posts here and then you can selectively add them to each post. They will not all display on every post by default. You can always come back later and add in new rating criteria to assign to your posts.</p>
+        
+        <p class="bg-info text-info"><span class="label label-info">Info</span> The metric you choose in theme options does not limit you only to using that metric for your whole site, it's just a default. You can selectively use a different metric on a per-post basis in the <strong>Review Options</strong> panel if you want.</p>
+        
+        <p>Here are the criteria we added in the live demo. We left the weight blank for each of the criteria, but if you want a criteria to have more weight in the auto-averaging of the total score, give them all relative weights.</p>
+        
+        <div class="center-block">    
+        	<img src="http://www.brianmcculloh.com/files/documentation/implicit-criteria.png" class="img-thumbnail img-responsive">            
+        </div>
+        
+        <p>We also added various details as well. Add whatever you want for your details fields. They are similar to criteria in that they only display on the post if you have entered content (i.e. leave them blank to exclude them) but they obviously don't carry any rating value, they are purely informational (and optional as well).</p>
+        
+        <p>Now go to any post and notice the available rating criteria in the <strong>Review Options</strong> panel below the content editor. Enter positives, negatives, and a bottom line for the review, and then make your rating criteria selections. Only select values for the criteria that you want to use for the post and leave the rest set as Choose One... or No Rating.</p>
+        
+        <div class="center-block">    
+        	<img src="http://www.brianmcculloh.com/files/documentation/implicit-review-options.png" class="img-thumbnail img-responsive">            
+        </div>
+        
+        <p class="bg-success text-success"><span class="label label-success">Helpful Tip</span> You can selectively exclude editor ratings! Just select <strong>Users can rate (no editor rating)</strong> and that will allow users to rate that criteria on the front-end while not displaying anything for the editor rating for that criteria.</p>
+        
+        <p class="bg-info text-info"><span class="label label-info">Info</span> To disable the positives or negatives for a specific post, just leave the field blank and the theme will completely hide that area.</p>
+        
+        <p>You can override the auto-averaged total editor rating if you want to. To do so, just select a value for the <strong>Total Score Override</strong> option at the bottom of the list of rating criteria. This is the value that will be displayed to the user for the total rating of this review, regardless of what values are selected for the rating criteria.</p>
+        
+        <div class="center-block">    
+        	<img src="http://www.brianmcculloh.com/files/documentation/implicit-override.png" class="img-thumbnail img-responsive">            
+        </div>
+        
+        <p>You can reset user ratings for a specific post if you want to. To do so, scroll to the very bottom of the post edit screen and find the <strong>Reset Values</strong> panel and choose the <strong>Delete User Ratings</strong> option and then save the post. You can do the same with resetting likes, view counts, and user reactions as well using this panel.</p>
+        
+        <div class="center-block">    
+        	<img src="http://www.brianmcculloh.com/files/documentation/implicit-resets.png" class="img-thumbnail img-responsive">            
+        </div>	
+        
+        <p class="bg-info text-info"><span class="label label-info">Info</span> Regardless of which rating metric you choose, the results will be rendered correctly for rich snippet search results based on a 100 point scale (this is called "normalizing" the values, and the theme completely takes care of it for you)</p>
+    
+    </div>
+    
+    <h3 id="contents">In-Post "Contents" Menus</h3>
+    
+    <div class="clearfix">
+    
+    	<p>You can easily organize your posts using what are known as <em>Contents Menus</em> using shortcodes. This will create a contents menu that displays on your posts that lets the user navigate around the various sections of it. This is useful for very long and involved posts, especially using the Longform post format, and is especially useful for review posts with many sections of content.</p>
+        
+        <p>The first step is to adjust the display behavior of the contents menu within posts. You can set it to display for all posts, only review posts, only posts that you specifically tell it to display on, etc. To do so, go to the Theme Options >> Template Setup screen.</p>
+        
+        <div class="center-block">    
+        	<img src="http://www.brianmcculloh.com/files/documentation/implicit-template-setup.png" class="img-thumbnail img-responsive">            
+        </div>	
+        
+        <p>Then scroll down to the <strong>Single Posts</strong> section and find the <em>Contents Menu Behavior</em> section. If you want it to display for all posts, choose the first option just like the live demo.</p>
+        
+        <div class="center-block">    
+        	<img src="http://www.brianmcculloh.com/files/documentation/implicit-contents-behavior.png" class="img-thumbnail img-responsive">            
+        </div>
+        
+        <p>Now you will notice without having to do anything else the contents menu will display on all of your posts with some pre-packaged helpful links, such as an anchor link directly to the comments of the post. However, you'll want to add even more custom links to the menu for each post. This is a very simple process and is done using purely shortcodes. Open a post in edit view and choose the Content Section shortcode from the list of shortcodes in the shortcode generator. Then add the link label and click Send Shortcode to Editor &raquo; and the shortcode will appear in your content editor as is shown in the following screenshot:</p>
+        
+        <div class="center-block">    
+        	<img src="http://www.brianmcculloh.com/files/documentation/implicit-content-link.png" class="img-thumbnail img-responsive">            
+        </div>
+        
+        <p>So the shortcode syntax for any content section is <code>[section label="Content Menu Link Label"]</code>. The label corresponds to what displays in the actual contents menu - it's the menu item the user clicks on to be taken to that section. <strong><em>It is not what displays in the actual content</em></strong> - that is up to you. For instance, put a header right underneath the shortcode with matching text if you want that section of your content to have a header that matches the contents menu label. This is purely a means of separating your content so the contents menu can find the various sections.</p>
+        
+        <p class="bg-success text-success"><span class="label label-success">Helpful Tip</span> Using Cyrillics or other special characters in the names of your contents menu labels? Not to worry, just specify a non-Cyrillic value for the <strong>Anchor Text</strong> of the menu item. This will not display to the user, it is only used for anchor linking purposes.</p>
+        
+        <p class="bg-info text-info"><span class="label label-info">Info</span> There is no limit to the number of sections you can add to the contents menu, other than the limitation of the users' vertical screen viewport height (since the contents menu lists items vertically).</p>
+    
+    </div>
+    
+    <h3 id="directory">Directory Builder</h3>
+    
+    <div class="clearfix">
+    
+    	<p>One of the most powerful features in in the theme is the directory builder. You can create any kind of category directory listing on any specific page with any layout using the Directory page template. And best of all, it's a very simple two step process. We'll use the "Directory - Reviews" page, which is one of the directories present in the live demo. The first thing to do is create the page and assign the Directory page template as is shown in the screenshot:</p>
+        
+        <div class="center-block">    
+        	<img src="http://www.brianmcculloh.com/files/documentation/implicit-directory.png" class="img-thumbnail img-responsive">            
+        </div>
+        
+        <p>Then locate the <strong>Directory Options</strong> panel underneath the layout options panel. You'll notice many options you can control, such as which categories to include, the type, style, and layout of the directory, default sorting, posts per page, etc. Setup this particular directory page to match the options in the screenshot:</p>
+        
+        <div class="center-block">    
+        	<img src="http://www.brianmcculloh.com/files/documentation/implicit-directory-options.png" class="img-thumbnail img-responsive">            
+        </div>
+        
+        <p>To recap, we have selected our four main section categories created previously in one merged list with Layout A. We have set the default sorting to Highest User Rated (but since we didn't disable any filters the user can adjust the sorting on the front end) and we have set it to include only posts that have been assigned a review. So we have effectively created a directory of all reviews within our site within only the categories we want. We could have created a separate directory page for each of these categories if we preferred.</p>
+        
+        <p class="bg-info text-info"><span class="label label-info">Info</span> You do not need to enter any content into the page content editor. However any content you do enter will display above the directory listing.</p>
+        
+        <p>That's it! It's as easy as that to create a directory, and you can create as many of them as you want to. The possibilities are endless. To get all of the directories you see in the live demo, you can import the demo content as is described towards the top of the documentation. All of the rest of the directories are created in this same fashion, just with different options selected in the Directory Options panel</p>
+    
+    </div>
+    
+    <h3 id="ads">Ad Management</h3>
+    
+    <div class="clearfix">
+    
+    	<p>There are a myriad of ad spots within the theme. All of the ad slot locations are fully compatible with HTML syntax, shortcodes, ad vendors such as Adsense, and even responsive ad units. You can see in the Theme Options >> Ads screen they are separated into four main categories:</p>
+        
+        <ul>
+        	<li>General</li>
+            <li>Page Builders</li>
+            <li>Single Posts/Pages</li>
+            <li>Post Loops</li>
+        </ul>
+        
+        <div class="center-block">    
+        	<img src="http://www.brianmcculloh.com/files/documentation/implicit-ads.png" class="img-thumbnail img-responsive">            
+        </div>
+        
+        <p>The general section contains ads that display on all pages throughout the site and is made up of the header ad and the footer ad. The page builders section contains ads that display above and below each instance of a page builder, which means these ads will only display on pages where there is a corresponding page builder. The single posts/pages section contains ad slots that display within single post and page content, such as after the post title, featured image, content, comments, etc. And finally the post loops section contains a sophisticated mechanism for inserting ads within your post loops. The first three are self-evident, but the post loops section having more functionality requires some explanation.</p>
+        
+        <div class="center-block">    
+        	<img src="http://www.brianmcculloh.com/files/documentation/implicit-loop-ads.png" class="img-thumbnail img-responsive">            
+        </div>
+        
+        <p>Each ad slot will show up between a row within the loop, so regardless of whether you are using the grid or blog layout for your posts the ad will be between rows (not specific posts within one row of a 3 column grid loop for instance). You should enter ad content into at least as many ad slots as you have selected for Number of Ads. If you offset the ads, the first add will not display until after x number of rows of posts have been displayed, and then after that it will display an ad after x number of incremented rows. So if you have the offset at 2 and the increment at 4, it will display an ad after the second row and then after every 4 rows thereafter.</p>
+        
+        <p>The AJAX ads option is so you don't end up with blank ad spots on subsequent pages if you're using an ad vendor that does not allow their ads to be displayed in dynamic content (such as Google adsense). You can safely turn on this setting if you are using any other ads, such as standard image/HTML ads.</p>
+    
+    </div>
+    
+    <h3 id="layouts">Post Layouts</h3>
+    
+    <div class="clearfix">
+    
+    	<p>One of the features that makes this theme so unique is the ability to create three different overall styles of posts, including Classic, Billboard, and Longform. Both classic and billboard layouts are capable of displaying sidebars on the right if you want. Longform is a new theme feature and is for a more in-depth reading experience for the user, simplifying the layout and focusing on the art of writing by getting rid of the sidebar, adding more margin/padding to the content, and using a larger, serif font for the content. Both classic and billboard show the contents menu on the left collapsed by default, and longform displays it on the right expanded always for easy access. Billboard shows a much larger image and title at the top than classic, but doesn't expand the body copy as much as longform, so it's convenient if you want to highlight the title and image of the post, but then present a standard post reading experience thereafter.</p>
+        
+        <p>You can set your site-wide post layout in the Theme Options >> Template Setup >> Single Posts screen using the <strong>Layout</strong> option as is shown in the screenshot below:</p>
+        
+        <div class="center-block">    
+        	<img src="http://www.brianmcculloh.com/files/documentation/implicit-post-layout.png" class="img-thumbnail img-responsive">            
+        </div>
+        
+        <p>You can additionally specify a layout to be used for each specific post using the Layout Options below the post content editor. You'll notice many other options available in these places as well which manipulate the layout and style of the post, such as display of the sidebar, the featured image size, featured videos, etc.</p>
+        
+        <div class="center-block">    
+        	<img src="http://www.brianmcculloh.com/files/documentation/implicit-single-layout.png" class="img-thumbnail img-responsive">            
+        </div>
+        
+        <p class="bg-info text-info"><span class="label label-info">Info</span> Not all layout options will apply to all post layouts. For instance, the featured image size will not affect the longform layout since the featured image on longform posts is used up above the post content and is worked into the post template as a fixed size.</p>
+    
+    </div>
+    
+    <h3 id="woo">WooCommerce, BuddyPress, and bbPress</h3>
+    
+    <div class="clearfix">
+    
+    	<p>This theme comes with full style/skinning for three of the most widely used WordPress plugins: WooCommerce, BuddyPress, and bbPress. Nothing special is required in order to get the theme up and running with any or all of these plugins. You can see how a live environment of these plugins is setup in the live theme demo here:</p>
+        
+        <ul>
+        	<li><a href="http://www.industrialthemes.com/implicit-alt/shop/">WooCommerce</a></li>
+            <li><a href="http://www.industrialthemes.com/implicit-alt/activity/">BuddyPress</a></li>
+            <li><a href="http://www.industrialthemes.com/implicit-alt/forums/">bbPress</a></li>
+        </ul>
+        
+        <p>Install these plugins according to their standard installation instructions. Once you have installed any of these plugins, you'll notice in the theme options that a new panel is created giving you some options to control how pages within the plugins display. Both the BuddyPress and WooCommerce theme options tabs are added to the bottom of the list of existing tabs.</p>
+        
+        <div class="center-block">    
+        	<img src="http://www.brianmcculloh.com/files/documentation/implicit-woo-options.png" class="img-thumbnail img-responsive">            
+        </div> 
+        
+        <p>Using these tabs you control the layout of pages within the plugins. For instance the shop and checkout pages within WooCommerce, the activity and group pages within BuddyPress, and the forum pages within bbPress. One of the options you have control over is whether unique sidebars are used for these plugins. If you select the unique sidebars to display you'll be able to add widgets to them using the Appearance >> Widgets screen just like if you were to create a custom sidebar as described in the previous section.</p>
+        
+        <div class="center-block">    
+        	<img src="http://www.brianmcculloh.com/files/documentation/implicit-woo.png" class="img-thumbnail img-responsive">            
+        </div> 
+        <div class="center-block">    
+        	<img src="http://www.brianmcculloh.com/files/documentation/implicit-buddypress.png" class="img-thumbnail img-responsive">            
+        </div> 
+        <div class="center-block">    
+        	<img src="http://www.brianmcculloh.com/files/documentation/implicit-woo-sidebar.png" class="img-thumbnail img-responsive">            
+        </div> 
+        
+        <p>Because of the way BuddyPress is built versus how WooCommerce is built, you will need to edit your BuddyPress pages that were created when you installed BuddyPress and assign the <strong>BuddyPress Page</strong> template in order for the settings within the theme options to take effect. WooCommerce does not require you to do this.</p>
+        
+        <div class="center-block">    
+        	<img src="http://www.brianmcculloh.com/files/documentation/implicit-buddypress-page.png" class="img-thumbnail img-responsive">            
+        </div> 
+        
+        <p>The BuddyPress and bbPress pages both use the BuddyPress theme options panel. You cannot separately adjust settings for only the bbPress pages at this time.</p>
+    
+    </div>    
+    
+</section>
+
+<section id="troubleshooting">             
+    
+    <h1>Troubleshooting &amp; Tips</h1>
+    
+    <p>Using the theme is actually pretty self-evident, and whenever there is any information that needs to be conveyed you can find it by hovering over the help icon to the right of each setting in the theme options and also in the post and page meta box options. We have also created screecasts that detail step by step how to accomplish common theme tasks, such as setting up category colors/icons or using the shortcode generator. There are several additional helpful pieces of information that you may come across which are detailed below. Further questions that come up after the theme has been published will be added to the FAQs.</p>
+    
+    <p>
+    <a class="btn btn-lg btn-primary" href="http://industrialthemes.ticksy.com/faqs" target="_blank">View FAQs</a>
+    </p> 
+    
+    <h3>Theme Tips</h3>
+    
+    <ul>
+    	<li>Names of rating criteria cannot match names of details or awards/badges (or "video" for featured video)</li>
+        <li>You cannot use the word "content" for any of your rating criteria or details since that is a reserved WordPress word</li>
+        <li>The grid infinite and grid paged builder panels do not show sticky posts first because of how WordPress calculates posts per page with sticky posts - it would offset the flow of the grid if sticky posts are on subsequent pages. See <a href="http://wordpress.org/support/topic/strange-sticky-posts-and-posts-per-page-calculation">here</a> for more info.</li>
+        <li>Number of user ratings displayed on single review articles doesn't update live via AJAX (and shouldn't since it's an average)</li>
+        <li>When a comment is deleted, the post custom meta fields are not deleted with it. This means if a user rates and/or submits pros/cons for an article via the comments and then their comment gets deleted, that user cannot post another comment with a rating and/or pros/cons again because that information still exists (but they can submit a standard comment)</li>
+        <li>If an article has never been liked it will not show up when filtering for likes, but if an article has been liked once and then unliked back to 0 likes (this will probably rarely happen) it <strong><em>will</em></strong> show up when filtering for likes. However, it will show up correctly at the end of the list with 0 likes. The discrepancy is worth note because it can be confusing if some posts with 0 likes display and some with 0 likes don't display.</li>
+        <li>When adding carousel short codes to posts, do not use any left or right alignment on the main sliding image (you should only use block-level elements in carousels for them to function correctly). Image can be any size and will be responsively scaled down, it just can't ahve alignright or alignleft classes.</li>
+        <li>Longform posts are not able to display a sidebar even if you have chosen to show a sidebar for the post.</li>
+        <li>To get images to expand beyond the left and right alignment of the main content on longform posts (like the demo) you need to set the alignment of the inserted image to "center".</li>
+        <li>Any page with the Directory template assigned will not be able to display a sidebar even if you set it to display in the page options.</li>
+    </ul>
+      
+    <br />
+    
+</section>
+
+<section id="themecheck">             
+    
+    <h1>"Theme Check" Explanation</h1>
+    
+    <p>If you run the Theme Check plugin, which is a requirement for submitting themes to ThemeForest and the WordPress plugin directory, you'll notice some warnings/errors that warrant explanation. Here is a list of the warning messages that occur and the explanation as to why each of them exists:</p>
+    
+    <h4>No reference to add_theme_support( 'custom-header', $args )</h4>
+
+	<p><strong>Explanation:</strong> The theme does not support using a custom image for the header. You can use a custom logo and a custom background, but due to the nature of the theme layout there really isn't a container for a header-specific image.</p>
+    
+    <h4>Found base64_encode</h4>
+
+	<p><strong>Explanation:</strong> This is needed for serializing the theme options in order for users to be able to export and import their theme options. There is no malicious code or file operations and it is purely for theme settings importing/exporting purposes and only available to the site admin.</p>
+    
+    <h4>file_get_contents was found, curl_init was found, curl_exec was found, and shell_exec was found</h4>
+
+	<p><strong>Explanation:</strong> Required by the functions in the widget that displays Twitter, Facebook, and Google+ social counts. This is the standard way of obtaining this information and interacting with the social media vendor APIs and there is no malicious code or file operations happening.</p>
+    
+    <h4>Possible hard-coded links were found</h4>
+
+	<p><strong>Explanation:</strong> Yes, there are a few places where hard-coded links are purposefully present, including the credits link in the footer to Google Fonts and the demo panel link to the theme features.</p>
+   
+    <br />
+    
+</section>
+
+<section id="performance">             
+    
+    <h1>Performance &amp; Optimization</h1>
+    
+    <p>We have optimized all of the images used in our live preview using the <a href="https://wordpress.org/plugins/ewww-image-optimizer/">EWWW Image Optimizer</a> plugin which greatly reduces filesizes of images without sacrificing quality. We also run <a href="https://wordpress.org/plugins/w3-total-cache/">W3 Total Cache</a> on our demo (only page and browser caching, not database or object caching) to make it as fast as possible, but this is not a requirement as the theme is very fast even without it. For instance, icon fonts are used instead of icon images which provides two benefits: performance and HiDPI/retina capability.</p>
+    
+    <p>We know it's important that your site is as fast as possible, which is why we've designed the theme to be as fast as possible. However if you test the theme using page speed metric sites like Pingdom and GTMetrix you'll always see room for improvement. It's important to note that not all site performance measures can be accomplished purely in the code - a lot of it has to do with web server settings (i.e. "Next Level" adjustments), external assets like images, and third-party code. To further fine-tune the speed of your site we recommend following the techniques described in the page speed testers, and if you need professional expertise we recommend Elto or Envato Studio for great developers.</p>
+    
+    <p>Our live demo, which is completely loaded with just about as much content and images as you can have on a page, gets an 82/100 performance grade, and that's without any caching plugins active. The load time is ~4-5 seconds and the page size is ~2.2 MB. These can be even further reduced by displaying less content on the page - it just depends on your individual needs. With caching plugins active these numbers will improve even more.</p>
+    
+    <p>We have extensively tested the theme using various page speed metric sites and fine-tuned it as much as we possibly could before we released it. Here is an itemized list of common recommendations we came across during our testing, along with our explanation of precisely why the issue is either irrelevant to the actual theme code or why we chose not to implement it:</p>
+    
+    <h4>Combine external JavaScript & Make Fewer HTTP requests</h4>
+
+	<p><strong>Explanation:</strong> The theme only uses 4 javascript files, one for Bootstrap, one for the theme's jQuery plugins, one for the theme's custom javascript, and one for the theme's AJAX requests. The rest of the files are enqueued correctly and via best practices from WordPress's internal js library and thus cannot be combined. The reason the Bootstrap, plugins, scripts, and AJAX javascript files are not combined is to make it easier to update Bootstrap in the future, and serving 4 js files instead of 1 has such a negligible impact that we are not worried about it. Besides, they are all compressed and minified.</p>
+    
+    <h4>Remove query strings from static resources</h4>
+
+	<p><strong>Explanation:</strong> This is again referring to the javascript imported directly from within WordPress's internal libraries, and WordPress requires that querystrings be used in the enqueueing functions (in other words, this is not a theme issue but rather an inherent WordPress nuance).</p>
+    
+    <h4>Reduce the number of DOM elements</h4>
+
+	<p><strong>Explanation:</strong> Just add less page builder panels to the page to get less DOM elements. You have complete control over how simple or complex your site is because of how easy it is to use the theme's page builders.</p>
+    
+    <h4>Combine images using CSS sprites</h4>
+
+	<p><strong>Explanation:</strong> This only applies to images that are available for users to upload one by one in the theme options, such as awards, badges, and minisite icons. We use them as background images for performance reasons, and that in turn trips the flags in some of the performance testing tools even though it's irrelevant.</p>
+    
+    <h4>Serve resources from a consistent URL</h4>
+
+	<p><strong>Explanation:</strong> This is caused by Facebook integration within the social widgets and there is nothing to be done on the theme's end (in other words, this is not a theme issue but rather an inherent third-party vendor-specific nuance).</p>
+    
+    <h4>Specify image dimensions</h4>
+
+	<p><strong>Explanation:</strong> The Pinterest widget displays images without image dimensions. Just don't use it and you won't have this issue. There's nothing that can be done on the theme's end (in other words, this is not a theme issue but rather an inherent third-party vendor-specific nuance). All image dimensions are specified correctly within the theme code.</p>
+    
+    <h4>Use a Content Delivery Network (CDN)</h4>
+    
+    <p><strong>Explanation:</strong> This is a "next level" site enhancement and is irrelevent to the theme. It is completed up to you whether or not you choose to use a CDN, and doing so requires you to set it up on your web server, not within the theme files.</p>
+    
+    <h4>Compress components with gzip</h4>
+    
+    <p><strong>Explanation:</strong> This is a "next level" site enhancement and is irrelevent to the theme. It is completely up to you whether or not you choose to use compression for your site, and doing so requires you to set it up on your web server, not within the theme files.</p>
+      
+    <br />
+    
+</section>
+
+<section id="migrating">  
+
+	<h1>Migrating from previous IndustrialThemes minisite-enabled themes</h1>
+    
+    <p>If you are running a previous IndustrialThemes theme that allows minisite creation and want to upgrade to this theme, the biggest thing you need to take into account is that you will need to convert your existing minisite articles back into standard WordPress posts. You will not lose your articles, but you will need to open each article and re-apply your editor ratings, and <strong>you will also lose your existing user ratings</strong>, so be very cautious before migrating themes. Details will be retained from the previous theme, as well as likes, views, and comments. If you were not using minisites you can disregard this.</p>
+    
+    <ol>      
+        <li>Before you activate this theme, install the <a href="http://wordpress.org/plugins/convert-post-types/">Convert Post Types</a> plugin<br />
+        	<span class="label label-info">Tip</span> if you forget this step before installing this theme, you can revert back to the previous theme and still access your minisites</li>
+        </li>
+        <li>Create categories to correspond with each of your minisites, for instance if you have a "Movies" minisite then create a "Movies" category. The names don't have to match, it's your own preference on how you organize your content, this is just a recommendation.</li>
+        <li>Go to Tools >> Convert Post Types</li>
+        <li>Select the minisite in the "Convert From..." drop down and select post in the "Convert To..." drop down</li>
+        <li>Select the corresponding category that you created above in the Categories select list</li>
+        <li>Click Convert >> which will convert the post types</li>
+        <li>Rinse and repeat for each minisite</li>
+        <li>Activate this theme</li>
+        <li>Go to Settings >> Permalinks and set your permalink structure to <code>/%category%/%postname%/</code><br />
+        	<span class="label label-warning">Important</span> make sure if you have a subcategory that you also assign the parent category to the post or else it will put both the parent category and the subcategory in the URL causing it not to match the previous URL for the article</span>
+        </li>
+        <li>Go to Theme Options and create all of your previous Details and Rating Criteria (make sure they are named the same as before)</li>
+        <li>Open each post and re-apply the editor ratings</li>
+    </ol>         
+        
+</section>
+
+<section id="credits">             
+    
+    <h1>Credits</h1>
+    
+    <p>All external assets used by the theme have been bought and paid for or are free for commercial use. We have taken careful strides to make sure we attribute every asset to its creator and owner even if attribution is not required. In order to keep this list updated easily and contained in just one place, we have created a section of the support center purely for housing credit/copyright/licensing information. Please refer to that page for credits:</p>
+    
+    <p>
+    <a class="btn btn-lg btn-primary" href="http://www.industrialthemes.com/implicit/support/credits/" target="_blank">View Credits</a>
+    </p>  
+      
+    <br />
+    
+</section>
+            
+            </div>
+          
+        </div>
+    
+    </div>
+    
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+    <script type="text/javascript" src="../js/plugins.min.js"></script>	
+    
+    <script type="text/javascript">
+		!function ($) {
+
+		  $(function(){
+		
+			var $window = $(window)
+		
+			// Disable certain links in docs
+			$('section [href^=#]').click(function (e) {
+			  e.preventDefault()
+			})
+		
+			// side bar
+			setTimeout(function () {
+			  $('.nav-sidenav').affix({
+				offset: {
+				  top: function () { return $window.width() <= 980 ? 290 : 210 }
+				, bottom: 270
+				}
+			  })
+			}, 100)
+		  })
+		
+		}(window.jQuery)
+	</script>
+    
+</body>
+</html>
